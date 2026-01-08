@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Inquiries</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Submitted Inquiries</h1>
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inquiry in inquiries %}
+            <tr>
+                <td>{{ inquiry[0] }}</td>
+                <td>{{ inquiry[1] }}</td>
+                <td>{{ inquiry[2] }}</td>
+                <td>{{ inquiry[3] }}</td>
+                <td>{{ inquiry[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
