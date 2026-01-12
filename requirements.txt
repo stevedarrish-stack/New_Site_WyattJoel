@@ -1,5 +1,7 @@
+<<<<<<< HEAD
 Flask
 flask-cors
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 gunicornFlask
@@ -8,3 +10,11 @@ gunicorn
 =======
 gunicorn
 >>>>>>> 4f4b54b (Update requirements.txt with correct dependencies)
+=======
+gunicorn
+=======
+flask
+flask-cors
+gunicorn
+>>>>>>> 79c0d7c (Add requirements.txt to repo root)
+>>>>>>> 781ec0a (Save local changes before rebase)
