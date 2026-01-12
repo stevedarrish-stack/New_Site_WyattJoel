@@ -1,6 +1,10 @@
 Flask
 flask-cors
+<<<<<<< HEAD
 =======
 gunicornFlask
 flask-cors
 gunicorn
+=======
+gunicorn
+>>>>>>> 4f4b54b (Update requirements.txt with correct dependencies)
