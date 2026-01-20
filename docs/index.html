@@ -881,6 +881,13 @@
             wrap.appendChild(tag);
             wrap.appendChild(h4);
             wrap.appendChild(p);
+            // Add hover description
+            const hoverDesc = document.createElement('div');
+            hoverDesc.className = 'insight-hover-desc';
+            hoverDesc.textContent =
+              item.hoverDesc ||
+              'Read more for actionable insights and practical steps to address this topic.';
+            wrap.appendChild(hoverDesc);
             frag.appendChild(wrap);
           });
           listEl.appendChild(frag);
