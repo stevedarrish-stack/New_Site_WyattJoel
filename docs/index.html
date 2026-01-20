@@ -369,6 +369,48 @@
     .insight-item {
       padding: 0.75rem 0;
       border-bottom: 1px solid #e5e7eb;
+      position: relative;
+    }
+    .insight-hover-desc {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      background: #e1effa;
+      color: #17305c;
+      font-size: 0.85rem;
+      padding: 0.7rem 1rem;
+      border-radius: 0.7rem;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+      z-index: 2;
+      margin-top: 0.3rem;
+    }
+    .insight-item:hover .insight-hover-desc,
+    .insight-item:focus-within .insight-hover-desc {
+      display: block;
+    }
+    .industry-card {
+      position: relative;
+    }
+    .industry-hover-desc {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      background: #e1effa;
+      color: #17305c;
+      font-size: 0.85rem;
+      padding: 0.7rem 1rem;
+      border-radius: 0.7rem;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+      z-index: 2;
+      margin-top: 0.3rem;
+    }
+    .industry-card:hover .industry-hover-desc,
+    .industry-card:focus-within .industry-hover-desc {
+      display: block;
     }
     .insight-item:last-child {
       border-bottom: none;
@@ -537,16 +579,19 @@
             <div class="insight-tag">Article · Operating model</div>
             <h4>Five moves to realign your operating model for digital scale</h4>
             <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
+            <div class="insight-hover-desc">Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.</div>
           </div>
           <div class="insight-item">
             <div class="insight-tag">Brief · Financial services</div>
             <h4>Rebuilding trust through transparent risk and control frameworks</h4>
             <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
+            <div class="insight-hover-desc">Learn how transparency and collaboration can strengthen your risk management and foster long-term client trust.</div>
           </div>
           <div class="insight-item">
             <div class="insight-tag">Point of view · AI</div>
             <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
             <p>Design principles for scaling AI responsibly across critical workflows.</p>
+            <div class="insight-hover-desc">Explore proven methods for scaling AI initiatives and achieving measurable business outcomes quickly and responsibly.</div>
           </div>
         </div>
       </div>
@@ -561,29 +606,32 @@
       execution risk is material.
     </p>
     <div class="card-grid">
-      <article class="card">
+      <article class="card industry-card">
         <span>Financial services</span>
         <h3>Banking, payments, and capital markets</h3>
         <p>
           From core banking modernization to third‑party risk and AML/KYC remediation,
           we help institutions navigate change at scale.
         </p>
+        <div class="industry-hover-desc">We provide tailored solutions for financial institutions to manage regulatory change and drive sustainable growth.</div>
       </article>
-      <article class="card">
+      <article class="card industry-card">
         <span>Healthcare</span>
         <h3>Payers, providers, and services</h3>
         <p>
           Improve access, experience, and economics by rethinking care models,
           digital front doors, and analytics foundations.
         </p>
+        <div class="industry-hover-desc">Our healthcare strategies focus on patient outcomes, operational efficiency, and digital transformation for providers.</div>
       </article>
-      <article class="card">
+      <article class="card industry-card">
         <span>Public & social sector</span>
         <h3>Government, education, and nonprofits</h3>
         <p>
           Support agencies and institutions in delivering better outcomes for citizens,
           students, and communities.
         </p>
+        <div class="industry-hover-desc">We help public sector organizations innovate, improve service delivery, and achieve measurable community impact.</div>
       </article>
     </div>
   </section>
