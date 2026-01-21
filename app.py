@@ -11,7 +11,8 @@ CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_cred
 DB_PATH = '/tmp/inquiries.db'
 
 def init_db():
-    conn = sqlite3.connect(DB_PATH)
+    try:
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS inquiries (
@@ -23,8 +24,11 @@ def init_db():
                 submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         ''')
-    conn.commit()
-    conn.close()
+        conn.commit()
+        conn.close()
+        logger.info(f"Database initialized at {DB_PATH} and table 'inquiries' ensured with all columns.")
+    except Exception as e:
+        logger.error(f"Error initializing database: {e}")
 
 def send_email_notification(name, email, topic, message, submitted_at):
     SMTP_SERVER = 'smtp.gmail.com'
