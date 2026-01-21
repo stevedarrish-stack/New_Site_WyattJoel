@@ -88,6 +88,25 @@ def inquiry():
 
     return jsonify({'status': 'success'}), 200
 
+@app.route('/inquiries', methods=['GET'])
+def get_inquiries():
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('SELECT id, name, email, topic, message, submitted_at FROM inquiries ORDER BY submitted_at DESC')
+    rows = c.fetchall()
+    conn.close()
+    inquiries = [
+        {
+            'id': row[0],
+            'name': row[1],
+            'email': row[2],
+            'topic': row[3],
+            'message': row[4],
+            'submitted_at': row[5]
+        }
+        for row in rows
+    ]
+    return jsonify(inquiries)
 
 # Ensure DB is initialized only once using a global flag
 db_initialized = False
