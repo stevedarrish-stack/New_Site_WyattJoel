@@ -1,3 +1,7 @@
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 from flask import Flask, request, jsonify
 import sqlite3
 from datetime import datetime
