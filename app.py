@@ -12,17 +12,17 @@ DB_PATH = '/tmp/inquiries.db'
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS inquiries (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            email TEXT,
-            topic TEXT,
-            message TEXT,
-            submitted_at TEXT
-        )
-    ''')
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS inquiries (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                email TEXT NOT NULL,
+                topic TEXT,
+                message TEXT NOT NULL,
+                submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ''')
     conn.commit()
     conn.close()
 
