@@ -815,16 +815,16 @@
   </section>
 
   <section id="contact" style="margin-top:3.5rem;">
-    <div class="section-label">Contact</div>
-    <div class="section-title">Start a conversation.</div>
-    <p class="section-lead">
+    <div class="section-label" style="text-align:left;">Contact</div>
+    <div class="section-title" style="text-align:left;">Start a conversation.</div>
+    <p class="section-lead" style="text-align:left;">
       Share a bit about your priorities, and we’ll follow up with a focused, no‑obligation discussion
       on where we might help.
     </p>
-    <div class="card" style="max-width:480px; margin:1rem auto;">
-      <p><strong>Steve Darrish</strong></p>
-      <p>Phone: <a href="tel:3143591367">314-359-1367</a></p>
-      <p>Email: <a href="mailto:Steve@wyattjoel.com">Steve@wyattjoel.com</a></p>
+    <div class="card" style="max-width:480px; margin:1rem 0; text-align:left;">
+      <p style="margin-bottom:0.2rem;"><strong>Steve Darrish</strong></p>
+      <p style="margin-bottom:0.2rem;">Phone: <a href="tel:3143591367">314-359-1367</a></p>
+      <p>Email: <a href="mailto:steve@wyattjoel.com">steve@wyattjoel.com</a></p>
     </div>
     <form id="contact-form" style="max-width:480px;">
       <div style="margin-bottom:0.9rem;">
@@ -986,38 +986,38 @@ Submitted at: {submitted_at}
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.send_message(msg)
+            server.starttls();
+            server.login(SMTP_USER, SMTP_PASS);
+            server.send_message(msg);
     except Exception as e:
-        print('Failed to send email:', e)
+        print('Failed to send email:', e);
 
 @app.route('/inquiry', methods=['POST'])
 def inquiry():
-    data = request.get_json()
-    name = data.get('name', '')
-    email = data.get('email', '')
-    topic = data.get('topic', '')
-    message = data.get('message', '')
-    submitted_at = datetime.utcnow().isoformat()
+    data = request.get_json();
+    name = data.get('name', '');
+    email = data.get('email', '');
+    topic = data.get('topic', '');
+    message = data.get('message', '');
+    submitted_at = datetime.utcnow().isoformat();
 
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
+    conn = sqlite3.connect(DB_PATH);
+    c = conn.cursor();
     c.execute('''
         INSERT INTO inquiries (name, email, topic, message, submitted_at)
         VALUES (?, ?, ?, ?, ?)
-    ''', (name, email, topic, message, submitted_at))
-    conn.commit()
-    conn.close()
+    ''', (name, email, topic, message, submitted_at));
+    conn.commit();
+    conn.close();
 
     # Send email notification
-    send_email_notification(name, email, topic, message, submitted_at)
+    send_email_notification(name, email, topic, message, submitted_at);
 
-    return jsonify({'status': 'success'}), 200
+    return jsonify({'status': 'success'}), 200;
 
 if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
+    init_db();
+    app.run(debug=True);
 
 # ===================
 # Instructions:
