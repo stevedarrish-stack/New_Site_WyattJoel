@@ -7,7 +7,7 @@ from email.message import EmailMessage
 from flask_cors import CORS  # <-- Add this import
 
 app = Flask(__name__)
-CORS(app, origins=["https://wyattjoel.com"])  # <-- Enable CORS for your domain
+CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_credentials=True)  # <-- Enable CORS for your domain
 DB_PATH = 'inquiries.db'
 
 def init_db():
@@ -58,6 +58,9 @@ Submitted at: {submitted_at}
 
 @app.route('/inquiry', methods=['POST'])
 def inquiry():
+    print("Headers:", request.headers)
+    print("Data:", request.data)
+    print("JSON:", request.get_json())
     data = request.get_json()
     name = data.get('name', '')
     email = data.get('email', '')
@@ -82,4 +85,3 @@ def inquiry():
 if __name__ == '__main__':
     init_db()
     app.run(debug=True)
-
