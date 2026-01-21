@@ -84,9 +84,16 @@ def inquiry():
 
     return jsonify({'status': 'success'}), 200
 
-@app.before_first_request
+
+# Ensure DB is initialized only once using a global flag
+db_initialized = False
+
+@app.before_request
 def initialize_database():
-    init_db()
+    global db_initialized
+    if not db_initialized:
+        init_db()
+        db_initialized = True
 
 if __name__ == '__main__':
     app.run(debug=True)
