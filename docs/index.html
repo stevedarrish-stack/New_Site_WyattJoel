@@ -796,17 +796,17 @@
     <form id="contact-form" style="max-width:480px;">
       <div style="margin-bottom:0.9rem;">
         <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-        <input id="name" type="text" required
+        <input id="name" name="name" type="text" required
                style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
       </div>
       <div style="margin-bottom:0.9rem;">
         <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-        <input id="email" type="email" required
+        <input id="email" name="email" type="email" required
                style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
       </div>
       <div style="margin-bottom:0.9rem;">
         <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
-        <select id="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
+        <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
           <option>Enterprise transformation</option>
           <option>Digital & AI</option>
           <option>Risk, compliance, and controls</option>
@@ -816,7 +816,7 @@
       </div>
       <div style="margin-bottom:1rem;">
         <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-        <textarea id="message" rows="4"
+        <textarea id="message" name="message" rows="4"
                   style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit inquiry →</button>
