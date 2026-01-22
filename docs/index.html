@@ -137,13 +137,13 @@
       margin-top: 1.5rem;
       margin-bottom: 0.06rem;
     }
-    .hover-col {
-      position:relative;
-      cursor:pointer;
-      width:100%;
-      margin:0 auto;
-      margin-bottom:0.5rem;
-      text-align:left;
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
     }
     h1 {
       font-size: clamp(2.3rem, 4vw, 3rem);
@@ -172,25 +172,27 @@
       padding: 0.6rem 1.5rem;
       font-size: 0.9rem;
       font-weight: 500;
-    .hover-popup {
-      display:none;
-      position:absolute;
-      left:0;
-      top:100%;
-      width:100%;
-      background:#e1effa;
-      color:#17305c;
-      font-size:0.98rem;
-      padding:0.7rem 1rem;
-      border-radius:0.7rem;
-      box-shadow:0 4px 16px rgba(15,23,42,0.10);
-      z-index:2;
-      margin-top:0.3rem;
-      text-transform:none;
-      font-family:inherit;
-      text-align:left;
-      white-space:normal;
-      word-break:break-word;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #004c97;
+      color: #f9fafb;
+      box-shadow: 0 12px 22px rgba(15,23,42,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 30px rgba(15,23,42,0.3);
+      background: #00376f;
+    }
+    .btn-outline {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #111827;
     }
     .btn-outline:hover {
       background: #e5f0ff;
