@@ -502,9 +502,10 @@
   </style>
 </head>
 <body>
-  <!-- Background banner: image.png, 6in from top, 5in tall, full width, behind all content -->
+  <!-- Background banner: image.png, 6in from top, 5in tall, full width, less vivid -->
   <div style="position:fixed; top:6in; left:0; width:100vw; height:5in; overflow:hidden; z-index:-1;">
-    <img src="image.png" alt="Background Banner" style="width:100vw; height:5in; object-fit:cover; display:block;">
+    <img src="image.png" alt="Background Banner" style="width:100vw; height:5in; object-fit:cover; display:block; opacity:0.25;">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:white; opacity:0.15;"></div>
   </div>
 <header>
   <div class="nav-inner">
