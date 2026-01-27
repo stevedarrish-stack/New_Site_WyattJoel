@@ -1,7 +1,3 @@
-import logging
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 from flask import Flask, request, jsonify
 import sqlite3
 from datetime import datetime
@@ -12,27 +8,23 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://wyattjoel.com"}}, supports_credentials=True)
-DB_PATH = '/tmp/inquiries.db'
+DB_PATH = 'inquiries.db'
 
 def init_db():
-    try:
-        conn = sqlite3.connect(DB_PATH)
-        c = conn.cursor()
-        c.execute('''
-            CREATE TABLE IF NOT EXISTS inquiries (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                email TEXT NOT NULL,
-                topic TEXT,
-                message TEXT NOT NULL,
-                submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        ''')
-        conn.commit()
-        conn.close()
-        logger.info(f"Database initialized at {DB_PATH} and table 'inquiries' ensured with all columns.")
-    except Exception as e:
-        logger.error(f"Error initializing database: {e}")
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS inquiries (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT,
+            email TEXT,
+            topic TEXT,
+            message TEXT,
+            submitted_at TEXT
+        )
+    ''')
+    conn.commit()
+    conn.close()
 
 def send_email_notification(name, email, topic, message, submitted_at):
     SMTP_SERVER = 'smtp.gmail.com'
@@ -65,8 +57,8 @@ Submitted at: {submitted_at}
 
 @app.route('/inquiry', methods=['POST'])
 def inquiry():
-    print("Headers:", dict(request.headers))
-    print("Raw data:", request.data)
+    print("Headers:", request.headers)
+    print("Data:", request.data)
     print("JSON:", request.get_json())
     data = request.get_json()
     name = data.get('name', '')
@@ -88,35 +80,6 @@ def inquiry():
 
     return jsonify({'status': 'success'}), 200
 
-@app.route('/inquiries', methods=['GET'])
-def get_inquiries():
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute('SELECT id, name, email, topic, message, submitted_at FROM inquiries ORDER BY submitted_at DESC')
-    rows = c.fetchall()
-    conn.close()
-    inquiries = [
-        {
-            'id': row[0],
-            'name': row[1],
-            'email': row[2],
-            'topic': row[3],
-            'message': row[4],
-            'submitted_at': row[5]
-        }
-        for row in rows
-    ]
-    return jsonify(inquiries)
-
-# Ensure DB is initialized only once using a global flag
-db_initialized = False
-
-@app.before_request
-def initialize_database():
-    global db_initialized
-    if not db_initialized:
-        init_db()
-        db_initialized = True
-
 if __name__ == '__main__':
+    init_db()
     app.run(debug=True)
