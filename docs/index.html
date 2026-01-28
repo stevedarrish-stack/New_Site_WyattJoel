@@ -5,6 +5,28 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+        /* Desktop: Client Impact Snapshot images (wider than tall) */
+        .client-impact-card img {
+          width: 420px;
+          height: 220px;
+          object-fit: cover;
+          border-radius: 1.1rem;
+          box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+          display: block;
+          margin: 1.2rem auto;
+        }
+        /* Mobile: scale down but keep aspect ratio and look */
+        @media (max-width: 600px) {
+          .client-impact-card img {
+            width: 90vw !important;
+            max-width: 320px !important;
+            height: 168px !important;
+            min-height: 100px !important;
+            object-fit: cover !important;
+            border-radius: 1.1rem !important;
+            margin: 1.2rem auto !important;
+          }
+        }
     .insights-pers-img {
       width: 325px;
       height: 325px;
