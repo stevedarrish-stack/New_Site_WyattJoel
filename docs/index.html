@@ -99,7 +99,26 @@
       color: #111827;
       -webkit-font-smoothing: antialiased;
     }
-    /* Removed animated gradient background */
+    /* Restored animated gradient background */
+    .background-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, #e1effa 0%, #f9fafb 100%);
+      animation: gradientMove 12s ease-in-out infinite alternate;
+    }
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
     header {
       position: sticky;
       top: 0;
@@ -501,7 +520,7 @@
   </style>
 </head>
 <body>
-  <!-- Background banner removed for mobile and all views -->
+  <div class="background-gradient"></div>
 <header>
   <div class="nav-inner">
     <div class="brand">
@@ -517,7 +536,7 @@
   </div>
 </header>
 
-<main class="shell">
+<main class="shell" style="position:relative; z-index:1;">
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
