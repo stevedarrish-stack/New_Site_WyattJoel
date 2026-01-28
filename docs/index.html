@@ -5,6 +5,13 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+                      @media (max-width: 600px) {
+                        .insights-hide-mobile {
+                          display: none !important;
+                        }
+                      }
+                  @media (max-width: 600px) {
+                  }
               /* Mobile improvements for Client Impact Snapshot */
               @media (max-width: 600px) {
                 .client-impact-card {
@@ -506,7 +513,7 @@
   </style>
 </head>
 <body>
-  <!-- Background banner and overlay fully removed as requested. -->
+  <!-- Background banner removed for mobile and all views -->
 <header>
   <div class="nav-inner">
     <div class="brand">
@@ -667,113 +674,15 @@
 
   <section id="insights" class="insights" style="position:relative; overflow:hidden;">
       <div class="insights-grid" style="position:relative; z-index:1;">
-        <div class="insights-col1">
+        <div>
           <div class="section-label" style="color:#004c97; font-weight:bold;">INSIGHTS</div>
           <div class="section-title">Perspectives on what’s next.</div>
-          <p class="section-lead">
-            Short, practicable viewpoints on the trends reshaping industries—from generative AI
-            to evolving regulatory expectations.
-          </p>
-          <!-- Desktop INSIGHTS image -->
-          <img id="insights-pers-img-desktop" class="insights-img-desktop" src="insights-perspective.jpg" alt="INSIGHTS Perspective" />
-
-          <!-- Mobile INSIGHTS image -->
-          <img id="insights-pers-img-mobile" class="insights-img-mobile" src="pers.jpeg_mobile" alt="INSIGHTS Perspective Mobile" />
-
-          <style>
-            .insights-img-desktop {
-              display: block;
-              width: 50%;
-              max-width: 50%;
-              height: auto;
-              border-radius: 0.5rem;
-              box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-              background: #ffeaea;
-              margin: 1.2rem 0 1.2rem 0;
-              transition: width 0.2s, max-width 0.2s;
-            }
-            .insights-img-mobile {
-              display: none;
-              width: 25vw;
-              max-width: 90vw;
-              height: auto;
-              border-radius: 0.5rem;
-              box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-              background: #ffeaea;
-              margin: 1.2rem auto 1.2rem auto;
-              transition: width 0.2s, max-width 0.2s;
-            }
-            @media (max-width: 800px) {
-              .insights-img-desktop {
-                display: none !important;
-              }
-              .insights-img-mobile {
-                display: block !important;
-                margin: 1.2rem auto !important;
-              }
-            }
-          </style>
-<style>
-  .insights-img-desktop {
-    display: block;
-    width: 50%;
-    max-width: 50%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-    background: #ffeaea;
-    margin: 1.2rem 0 1.2rem 0;
-    transition: width 0.2s, max-width 0.2s;
-  }
-  .insights-img-mobile {
-    display: none;
-    width: 25%; /* 50% of desktop's 50% */
-    max-width: 25%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-    background: #ffeaea;
-    margin: 1.2rem 0 1.2rem 0;
-    transition: width 0.2s, max-width 0.2s;
-  }
-  }
-  /* Hide INSIGHTS image on mobile. To re-enable, remove this rule and use max-width: 90vw; width: auto; margin: 1.2rem auto; for .insights-img in the mobile media query. */
-  @media (max-width: 800px) {
-    .insights-img-desktop {
-      display: none !important;
-    }
-    .insights-img-mobile {
-      display: block !important;
-      width: 25vw !important;
-      max-width: 90vw !important;
-      margin: 1.2rem auto 1.2rem auto !important;
-    }
-  }
-  /* Remove mobile-img-fix class and mobile CSS for image */
-  <script>
-    // Mobile image width script removed; CSS now handles mobile/desktop image display and sizing.
-  </script>
-  .insights-col1 {
-    width: 100%;
-    overflow: hidden;
-  }
-  /* Removed old #insights-pers-img-desktop rules to prevent conflicts */
-</style>
-<style>
-  @media (max-width: 800px) {
-    #insights-pers-img-desktop {
-      margin: 1.2rem auto 1.2rem auto !important;
-      display: block !important;
-      width: 80vw !important;
-      max-width: 100% !important;
-      height: auto !important;
-      float: none !important;
-    }
-  }
-</style>
-<!-- DEBUG END -->
+          <div class="insights-hide-mobile">
+            <p class="section-lead">
+              Short, practicable viewpoints on the trends reshaping industries—from generative AI
+              to evolving regulatory expectations.
+            </p>
+          </div>
         </div>
         <div>
           <div id="insights-list"></div>
