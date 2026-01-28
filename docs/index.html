@@ -402,10 +402,7 @@
     .card h3 {
       font-size: 1.05rem;
       margin-bottom: 0.4rem;
-      color: #004c97 !important;
-    }
-    h3 {
-      color: #004c97 !important;
+      color: #0f172a;
     }
     .card p {
       font-size: 0.9rem;
@@ -416,8 +413,7 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: .13em;
-      color: #004c97 !important;
-      font-weight: bold;
+      color: #6b7280;
     }
     .insights {
       margin-top: 3.75rem;
@@ -558,7 +554,7 @@
   <section class="hero">
     <div>
       <div class="eyebrow">Strategy · Transformation · Performance</div>
-      <h1 style="color:#059669;">Transforming <span style="color:#059669;">complexity</span> into sustainable advantage.</h1>
+      <h1>Transforming <span>complexity</span> into sustainable advantage.</h1>
       <p>
         We partner with senior leaders to redesign operating models, unlock digital value,
         and deliver measurable impact across growth, cost, and risk.
@@ -1066,40 +1062,31 @@
     }
   })();
 </script>
-  // Enable pill popups on hover (desktop) and tap/long-press (mobile)
+  // Enable pill popups on tap/click for mobile
   document.addEventListener('DOMContentLoaded', function() {
     var pills = document.querySelectorAll('.pill');
-    var isTouch = false;
-    // Touch/Pointer event support for mobile
     pills.forEach(function(pill) {
-      var popup = pill.querySelector('.pill-hover');
-      if (!popup) return;
-      // Desktop: hover/focus (already works)
-      // Mobile: show on pointerdown (touchstart/pen), hide on pointerup/cancel/outside
-      pill.addEventListener('pointerdown', function(e) {
-        if (e.pointerType === 'touch' || e.pointerType === 'pen') {
-          isTouch = true;
-          // Hide all other popups
-          document.querySelectorAll('.pill-hover').forEach(function(ph) {
-            ph.style.display = 'none';
-          });
-          popup.style.display = 'block';
-        }
-      });
-      pill.addEventListener('pointerup', function(e) {
-        if (isTouch) {
-          setTimeout(function() { popup.style.display = 'none'; }, 250);
-        }
-      });
-      pill.addEventListener('pointerleave', function(e) {
-        if (isTouch) {
-          popup.style.display = 'none';
+      pill.addEventListener('click', function(e) {
+        // Only trigger on touch/click, not on desktop hover
+        var popup = pill.querySelector('.pill-hover');
+        if (!popup) return;
+        // If already visible, hide it
+        var isVisible = popup.style.display === 'block';
+        // Hide all other pill popups
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+        // Toggle this one
+        popup.style.display = isVisible ? 'none' : 'block';
+        // Prevent scrolling on mobile when popup is open
+        if (!isVisible && window.innerWidth <= 600) {
+          e.stopPropagation();
         }
       });
     });
-    // Hide pill popups when tapping elsewhere on mobile
-    document.addEventListener('pointerdown', function(e) {
-      if (isTouch && !e.target.classList.contains('pill')) {
+    // Hide pill popups when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      if (!e.target.classList.contains('pill')) {
         document.querySelectorAll('.pill-hover').forEach(function(ph) {
           ph.style.display = 'none';
         });
