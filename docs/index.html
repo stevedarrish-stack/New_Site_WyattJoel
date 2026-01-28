@@ -5,6 +5,21 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+                  /* Desktop: Set Pers.jpg to 3.5in x 3.5in in INSIGHTS */
+                  @media (min-width: 601px) {
+                    .insights-pers-img {
+                      width: 3.5in !important;
+                      height: 3.5in !important;
+                      max-width: 100%;
+                      max-height: 100%;
+                      border-radius: 1.1rem;
+                      object-fit: cover;
+                      box-shadow: 0 4px 18px rgba(15,23,42,0.13);
+                      display: block;
+                      margin-top: 1.1rem;
+                      margin-bottom: 0.7rem;
+                    }
+                  }
               /* Mobile improvements for Client Impact Snapshot */
               @media (max-width: 600px) {
                 .client-impact-card {
@@ -28,19 +43,26 @@
                   align-items: flex-start !important;
                 }
                 .pill-row {
-                  flex-wrap: wrap !important;
-                  gap: 0.3rem !important;
+                  flex-wrap: nowrap !important;
+                  gap: 0.18rem !important;
+                  justify-content: center !important;
+                  overflow-x: auto !important;
                 }
                 .pill {
-                  min-width: 70px !important;
-                  max-width: 100px !important;
-                  font-size: 0.7rem !important;
-                  padding: 0.15rem 0.5rem !important;
+                  min-width: 60px !important;
+                  max-width: 90px !important;
+                  font-size: 0.62rem !important;
+                  padding: 0.11rem 0.32rem !important;
                 }
                 .client-impact-card p,
                 .client-impact-card .impact-label,
                 .client-impact-card .impact-number {
                   font-size: 0.95rem !important;
+                }
+                .client-impact-card p:last-child {
+                  font-size: 0.68rem !important;
+                  line-height: 1.2 !important;
+                  margin-top: 0.5rem !important;
                 }
               }
           /* WHAT WE DO hover popup: match INSIGHTS style exactly */
@@ -680,7 +702,7 @@
             Short, practicable viewpoints on the trends reshaping industries—from generative AI
             to evolving regulatory expectations.
           </p>
-          <img src="Pers.jpg" alt="WyattJoel Partner" style="width:141px; max-width:100%; height:auto; border-radius:1.1rem; margin-top:1.1rem; margin-bottom:0.7rem; box-shadow:0 4px 18px rgba(15,23,42,0.13); display:block;" />
+          <img src="Pers.jpg" alt="WyattJoel Partner" class="insights-pers-img" style="width:141px; max-width:100%; height:auto; border-radius:1.1rem; margin-top:1.1rem; margin-bottom:0.7rem; box-shadow:0 4px 18px rgba(15,23,42,0.13); display:block;" />
         </div>
         <div>
           <div id="insights-list"></div>
