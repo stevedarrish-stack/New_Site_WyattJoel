@@ -761,14 +761,29 @@
         <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3; margin-bottom:0.5rem;" tabindex="0">
             Technology
             <span class="pill-hover">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+        /* Desktop: pill popups are absolutely positioned under the pill */
+        .pill-hover {
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          transform: translateX(-50%);
+          min-width: 140px;
+          max-width: 320px;
+          width: auto;
+          z-index: 1001;
+          margin-top: 0.4rem;
+          box-shadow: 0 4px 16px rgba(15,23,42,0.13);
+          white-space: normal;
+          word-break: break-word;
+        }
         @media (max-width: 600px) {
           .pill-hover {
-            position: absolute !important;
+            max-width: 96vw !important;
+            min-width: 140px !important;
+            width: auto !important;
             left: 50% !important;
             top: 100% !important;
             transform: translateX(-50%) !important;
-            max-width: 96vw !important;
-            width: auto !important;
             z-index: 2000 !important;
             margin-top: 0.4rem !important;
             box-shadow: 0 8px 32px rgba(15,23,42,0.25) !important;
@@ -1391,10 +1406,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     pill.addEventListener('focus', function() {
-      hideAllPopups(popup);
-      popup.style.display = 'block';
-      if (window.innerWidth <= 600 && closeBtn) closeBtn.style.display = 'block';
-      else if (closeBtn) closeBtn.style.display = 'none';
+      if (window.innerWidth > 600) {
+        hideAllPopups(popup);
+        popup.style.display = 'block';
+        if (closeBtn) closeBtn.style.display = 'none';
+      } else {
+        hideAllPopups(popup);
+        popup.style.display = 'block';
+        if (closeBtn) closeBtn.style.display = 'block';
+      }
     });
     pill.addEventListener('blur', function() {
       popup.style.display = 'none';
