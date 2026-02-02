@@ -776,7 +776,7 @@
       </div>
 
       <script>
-        // Pill popup logic for both mobile and desktop
+        // Pill popup logic for both desktop and mobile
         document.addEventListener('DOMContentLoaded', function() {
           var pills = document.querySelectorAll('.pill');
           var isTouch = false;
@@ -811,6 +811,13 @@
               });
               if (popup) {
                 popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+                // Scroll popup into view if needed
+                if (popup.style.display === 'block') {
+                  var rect = popup.getBoundingClientRect();
+                  if (rect.bottom > window.innerHeight) {
+                    window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
+                  }
+                }
               }
             });
             pill.addEventListener('click', function(e) {
@@ -821,6 +828,13 @@
               });
               if (popup) {
                 popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+                // Scroll popup into view if needed
+                if (popup.style.display === 'block') {
+                  var rect = popup.getBoundingClientRect();
+                  if (rect.bottom > window.innerHeight) {
+                    window.scrollBy({ top: rect.bottom - window.innerHeight + 20, behavior: 'smooth' });
+                  }
+                }
               }
             });
           });
