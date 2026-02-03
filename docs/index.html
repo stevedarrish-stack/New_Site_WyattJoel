@@ -15,7 +15,7 @@
                                                                                             width: auto;
                                                                                             background: #e1effa;
                                                                                             color: #17305c;
-                                                                                            font-size: 0.8rem;
+                                                                                            font-size: 0.62rem !important;
                                                                                             padding: 0.6rem 0.8rem;
                                                                                             border-radius: 0.7rem;
                                                                                             box-shadow: 0 4px 16px rgba(15,23,42,0.10);
@@ -1441,7 +1441,7 @@ from flask_cors import CORS  # <-- Add this import
 
 
 app = Flask(__name__)
-CORS(app, origins=["https://wyattjoel.com"])   # <-- Enable CORS for your domain
+CORS(app, origins=["https://wyattjoel.com"])     # <-- Enable CORS for your domain
 DB_PATH = 'inquiries.db'
 
 def init_db():
