@@ -1506,39 +1506,59 @@ if __name__ == '__main__':
       pill.setAttribute('aria-expanded', 'false');
     });
   }
-  pills.forEach(function(pill, idx) {
-    var menu = menus[idx];
-    // Show on hover/focus (desktop) and tap/click (mobile)
-    pill.addEventListener('mouseenter', function() {
-      if (window.innerWidth > 800) {
+  function setupDesktopPills() {
+    pills.forEach(function(pill, idx) {
+      var menu = menus[idx];
+      pill.onmouseenter = function() {
         hideAllMenus();
         menu.style.display = 'block';
         pill.setAttribute('aria-expanded', 'true');
-      }
-    });
-    pill.addEventListener('mouseleave', function() {
-      if (window.innerWidth > 800) {
+      };
+      pill.onmouseleave = function() {
         menu.style.display = 'none';
         pill.setAttribute('aria-expanded', 'false');
-      }
+      };
+      pill.onfocus = function() {
+        hideAllMenus();
+        menu.style.display = 'block';
+        pill.setAttribute('aria-expanded', 'true');
+      };
+      pill.onblur = function() {
+        menu.style.display = 'none';
+        pill.setAttribute('aria-expanded', 'false');
+      };
+      pill.onclick = null;
     });
-    pill.addEventListener('focus', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
+  }
+  function setupMobilePills() {
+    pills.forEach(function(pill, idx) {
+      var menu = menus[idx];
+      pill.onmouseenter = null;
+      pill.onmouseleave = null;
+      pill.onfocus = null;
+      pill.onblur = null;
+      pill.onclick = function(e) {
+        e.stopPropagation();
+        if (menu.style.display === 'block') {
+          menu.style.display = 'none';
+          pill.setAttribute('aria-expanded', 'false');
+        } else {
+          hideAllMenus();
+          menu.style.display = 'block';
+          pill.setAttribute('aria-expanded', 'true');
+        }
+      };
     });
-    pill.addEventListener('blur', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
-    });
-    pill.addEventListener('click', function(e) {
-      e.stopPropagation();
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
-    });
-  });
-  // Hide menus when clicking elsewhere
+  }
+  function setupPills() {
+    if (window.innerWidth <= 800) {
+      setupMobilePills();
+    } else {
+      setupDesktopPills();
+    }
+  }
+  setupPills();
+  window.addEventListener('resize', setupPills);
   document.addEventListener('click', function(e) {
     if (!e.target.classList.contains('pill')) {
       hideAllMenus();
