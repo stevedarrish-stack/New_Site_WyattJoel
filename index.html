@@ -575,9 +575,8 @@
     .pill-menu {
       display: none;
       position: absolute;
-      left: 50%;
+      left: 0;
       top: 110%;
-      transform: translateX(-50%);
       min-width: 120px !important;
       max-width: 180px !important;
       background: #fff !important;
@@ -609,17 +608,9 @@
         color: #17305c !important;
       }
       .pill-row {
-        display: flex !important;
-        flex-wrap: nowrap !important;
         overflow-x: auto !important;
-        white-space: nowrap !important;
         position: relative !important;
         z-index: 1;
-        gap: 0.7rem !important;
-        justify-content: flex-start !important;
-      }
-      .pill-row > div {
-        flex: 0 0 auto !important;
       }
     }
     .pill {
@@ -1285,39 +1276,57 @@
 </footer>
 
 <script>
-// Pill popups: direct sibling toggle
+// Floating pill popup: clone menu, append to body, position near pill
 (function(){
   var pills = document.querySelectorAll('.pill');
   var menus = document.querySelectorAll('.pill-menu');
-  function hideAllMenus() {
-    menus.forEach(function(menu) {
-      menu.style.display = 'none';
-    });
-    pills.forEach(function(pill) {
-      pill.setAttribute('aria-expanded', 'false');
-    });
+  var activePopup = null;
+  function removePopup() {
+    if (activePopup && activePopup.parentNode) {
+      activePopup.parentNode.removeChild(activePopup);
+      activePopup = null;
+    }
+    pills.forEach(function(pill){ pill.setAttribute('aria-expanded','false'); });
+  }
+  function showPopup(pill, menu) {
+    removePopup();
+    var rect = pill.getBoundingClientRect();
+    var popup = menu.cloneNode(true);
+    popup.style.display = 'block';
+    popup.style.position = 'fixed';
+    popup.style.left = (rect.left + window.scrollX) + 'px';
+    popup.style.top = (rect.bottom + window.scrollY + 6) + 'px';
+    popup.style.zIndex = 99999;
+    popup.style.minWidth = rect.width + 'px';
+    popup.classList.add('pill-popup-floating');
+    document.body.appendChild(popup);
+    activePopup = popup;
+    pill.setAttribute('aria-expanded','true');
   }
   pills.forEach(function(pill) {
-    var menu = pill.nextElementSibling;
-    if (!menu || !menu.classList.contains('pill-menu')) return;
+    var menu = pill.parentElement.querySelector('.pill-menu');
+    if (!menu) return;
     pill.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var isOpen = menu.style.display === 'block';
-      hideAllMenus();
-      if (!isOpen) {
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
+      if (activePopup) {
+        removePopup();
+        return;
       }
+      showPopup(pill, menu);
+    });
+    pill.addEventListener('focus', function(e) {
+      showPopup(pill, menu);
     });
     pill.addEventListener('blur', function(e) {
-      setTimeout(hideAllMenus, 100);
+      setTimeout(removePopup, 100);
     });
   });
   document.addEventListener('click', function(e) {
-    if (!e.target.classList.contains('pill')) {
-      hideAllMenus();
+    if (activePopup && !e.target.classList.contains('pill') && !e.target.classList.contains('pill-menu') && !e.target.classList.contains('pill-popup-floating')) {
+      removePopup();
     }
   });
+  window.addEventListener('scroll', removePopup, true);
+  window.addEventListener('resize', removePopup, true);
 })();
 </script>
 
