@@ -974,24 +974,24 @@
           <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
         </div>
       </div>
-        <div class="pill-row">
-          <div>
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
-            <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
-          </div>
-          <div>
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
-            <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
-          </div>
-          <div>
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
-            <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
-          </div>
-          <div>
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology</button>
-            <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
-          </div>
+      <div class="pill-row">
+        <div>
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
+          <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
         </div>
+        <div>
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
+          <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+        </div>
+        <div>
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
+          <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+        </div>
+        <div>
+          <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology</button>
+          <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+        </div>
+      </div>
       <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
         <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
       </p>
@@ -1594,40 +1594,32 @@ if __name__ == '__main__':
 </footer>
 
 <script>
-// Pill popups: direct sibling toggle
-(function(){
+// Enable pill popups on tap/click for mobile
+document.addEventListener('DOMContentLoaded', function() {
   var pills = document.querySelectorAll('.pill');
-  var menus = document.querySelectorAll('.pill-menu');
-  function hideAllMenus() {
-    menus.forEach(function(menu) {
-      menu.style.display = 'none';
-    });
-    pills.forEach(function(pill) {
-      pill.setAttribute('aria-expanded', 'false');
-    });
-  }
   pills.forEach(function(pill) {
-    var menu = pill.nextElementSibling;
-    if (!menu || !menu.classList.contains('pill-menu')) return;
     pill.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var isOpen = menu.style.display === 'block';
-      hideAllMenus();
-      if (!isOpen) {
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
+      var popup = pill.parentElement.querySelector('.pill-menu');
+      if (!popup) return;
+      var isVisible = popup.style.display === 'block';
+      document.querySelectorAll('.pill-menu').forEach(function(ph) {
+        ph.style.display = 'none';
+      });
+      popup.style.display = isVisible ? 'none' : 'block';
+      popup.style.zIndex = '100';
+      if (!isVisible && window.innerWidth <= 600) {
+        e.stopPropagation();
       }
-    });
-    pill.addEventListener('blur', function(e) {
-      setTimeout(hideAllMenus, 100);
     });
   });
   document.addEventListener('click', function(e) {
     if (!e.target.classList.contains('pill')) {
-      hideAllMenus();
+      document.querySelectorAll('.pill-menu').forEach(function(ph) {
+        ph.style.display = 'none';
+      });
     }
   });
-})();
+});
 </script>
 
 <script type="application/ld+json">
