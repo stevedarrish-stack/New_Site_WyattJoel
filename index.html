@@ -609,9 +609,17 @@
         color: #17305c !important;
       }
       .pill-row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
         overflow-x: auto !important;
+        white-space: nowrap !important;
         position: relative !important;
         z-index: 1;
+        gap: 0.7rem !important;
+        justify-content: flex-start !important;
+      }
+      .pill-row > div {
+        flex: 0 0 auto !important;
       }
     }
     .pill {
