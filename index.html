@@ -404,14 +404,8 @@
             display: block;
           }
       </footer>
-      /* misplaced CSS moved below */
-    /* ...existing code... */
-    .impact-actions {
-      margin-top: 0.2rem;
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.1rem;
-    }
+          margin-top: 0.2rem;
+        }
         .impact-actions {
           display: flex;
           gap: 1rem;
@@ -625,7 +619,7 @@
       word-break: break-word;
       text-align: left;
     }
-    /* Remove stray closing brace */
+    }
     .hero-card h2 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
@@ -659,21 +653,21 @@
     .pill-menu {
       display: none;
       position: absolute;
-      left: 0%;
+      left: 0;%;
       top: 110%;
       min-width: 120px !important;
       max-width: 180px !important;
-      background: #fff !important;
-      color: #17305c;
+      background: #fff;!important;
+      color: #17305c;f;
       font-size: 0.82rem;
       padding: 0.5rem 0.7rem !important;
-      border-radius: 0.7rem;
+      border-radius: 0.7rem;m;
       box-shadow: 0 4px 16px rgba(15,23,42,0.13);
-      z-index: 100;
+      z-index: 100; 4px 16px rgba(15,23,42,0.13);
       white-space: normal;
       word-break: break-word;
-      text-align: left;
-    }
+      text-align: left;-word;
+    } text-align: left;
     @media (max-width: 600px) {
       .pill-menu {
         position: absolute !important;
@@ -1461,7 +1455,9 @@
  }
   })();
 </script>
-  <!-- Removed stray/hidden script block -->
+  <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
+  // Enable pill popups on tap/click for mobile
+  document.addEventListener('DOMContentLoaded', function() {
     var pills = document.querySelectorAll('.pill');
     pills.forEach(function(pill) {
       pill.addEventListener('click', function(e) {
