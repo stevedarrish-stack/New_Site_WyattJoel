@@ -410,10 +410,10 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: #fff;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e7eb;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      z-index: 10;
     }
     .nav-inner {
       max-width: 1120px;
@@ -812,9 +812,9 @@
   </div>
 <header>
   <div class="nav-inner" style="position:relative;">
-    <div class="brand" style="font-size:2rem;">
-      <div class="brand-mark" style="font-size:2.5rem;">WJ</div>
-      <span style="font-size:1.5rem; vertical-align:middle;">WyattJoel Advisory Partners</span>
+    <div class="brand">
+      <div class="brand-mark">WJ</div>
+      WyattJoel Advisory Partners
     </div>
     <nav class="main-nav">
       <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
@@ -824,6 +824,7 @@
     </nav>
   </div>
 </header>
+
 <main class="shell">
   <section class="hero">
     <div>
@@ -1341,6 +1342,7 @@
             const errorText = await res.text();
             alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
           }
+        }
         } catch (err) {
           alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
         }
