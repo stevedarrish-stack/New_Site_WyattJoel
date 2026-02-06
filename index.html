@@ -13,95 +13,22 @@
                                             }
                                             .client-impact-card h2 {
                                               font-size: 1.3rem !important;
-                                              margin-bottom: 0.3rem !important;
-                                            }
-                                            .impact-stats {
-                                              gap: 1rem !important;
-                                            }
-                                            .impact-number {
-                                              font-size: 1.3rem !important;
-                                            }
-                                            .impact-label {
-                                              font-size: 0.85rem !important;
-                                            }
-                                            .pill-row {
-                                              gap: 0.3rem !important;
-                                              margin-bottom: 0.4rem !important;
-                                              flex-wrap: wrap !important;
-                                            }
-                                            .pill {
-                                              min-width: 70px !important;
-                                              max-width: 90px !important;
-                                              font-size: 0.65rem !important;
-                                              padding: 0.12rem 0.4rem !important;
-                                            }
-                                            .client-impact-card p {
-                                              font-size: 0.68rem !important;
-                                              padding: 0.5rem 0.7rem !important;
-                                            }
-                                          }
-                                      @media (max-width: 800px) {
-                                        .nav-inner {
-                                          flex-direction: column !important;
-                                          align-items: flex-start !important;
-                                        }
-                                        .brand {
-                                          margin-bottom: 0.5rem !important;
-                                        }
-                                        nav:not(.mobile-nav) {
-                                          display: flex !important;
-                                          flex-direction: row !important;
-                                          width: 100vw !important;
-                                          justify-content: flex-start !important;
-                                          align-items: center !important;
-                                          margin-bottom: 0.5rem !important;
-                                          overflow-x: auto !important;
-                                          white-space: nowrap !important;
-                                          font-size: 0.85rem !important;
-                                          padding: 0 0.2rem !important;
-                                        }
-                                        nav:not(.mobile-nav) a {
-                                          display: inline-block !important;
-                                          white-space: nowrap !important;
-                                          margin-right: 1.1rem !important;
-                                          margin-bottom: 0 !important;
-                                          font-size: 0.95em !important;
-                                        }
-                                        nav:not(.mobile-nav) a:last-child {
-                                          margin-right: 0 !important;
-                                        }
-                                        .mobile-nav-btn, .mobile-nav {
-                                          display: none !important;
-                                        }
-                                      }
-                                  @media (max-width: 800px) {
-                                    .nav-inner {
-                                      flex-direction: column !important;
-                                      align-items: flex-start !important;
-                                    }
-                                    .brand {
-                                      margin-bottom: 0.5rem !important;
-                                    }
-                                    .mobile-nav-btn {
-                                      display: flex !important;
-                                      margin-top: 0.2rem !important;
-                                      margin-bottom: 0.7rem !important;
-                                      align-self: flex-start !important;
-                                      position: relative !important;
-                                      z-index: 1101 !important;
-                                    }
-                                    .nav-inner > nav:not(.mobile-nav) {
-                                      display: none !important;
-                                    }
-                                    .mobile-nav {
-                                      display: none !important;
-                                      flex-direction: column !important;
-                                      width: 100vw !important;
-                                      position: absolute !important;
-                                      top: 100% !important;
-                                      left: 0 !important;
-                                      background: #fff !important;
-                                      z-index: 1100 !important;
+                                              /* Hamburger menu styles and mobile nav toggle */
+                                              @media (max-width: 800px) {
+                                                .hamburger-menu {
+                                                  display: block !important;
+                                                  margin-top: 0.5rem;
+                                                }
+                                                .main-nav {
+                                                  display: none;
+                                                }
+                                                .main-nav.open {
+                                                  display: flex !important;
+                                                  flex-direction: column;
+                                                  gap: 1rem;
+                                                  margin-top: 0.5rem;
+                                                }
+                                              }
                                       box-shadow: 0 4px 16px rgba(15,23,42,0.10) !important;
                                       padding: 1.2rem 1.5rem 1.5rem 1.5rem !important;
                                     }
@@ -232,9 +159,9 @@
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        width: 38px;
-                        height: 38px;
-                        cursor: pointer;
+                        width: 20px;
+                        height: 20px;
+                        font-size: 1.7rem;
                       }
                       .mobile-nav-btn span {
                         display: block;
@@ -455,17 +382,17 @@
       text-transform: uppercase;
     }
     .brand-mark {
-          width: 80px;
-          height: 80px;
+          width: 28px;
+          height: 28px;
           border-radius: 30% 70% 55% 45%;
-          background: linear-gradient(135deg, #004c97, #0f172a);
+          background: transparent;
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #f9fafb;
-          font-size: 0.85rem;
-          font-weight: 700;
-          box-shadow: 0 8px 18px rgba(15,23,42,0.35);
+          color: #004c97;
+          font-size: 2rem;
+          font-weight: 900;
+          box-shadow: none;
           line-height: 1;
           letter-spacing: 0.01em;
           padding: 0;
@@ -595,7 +522,7 @@
       box-shadow: 0 18px 35px rgba(15,23,42,0.35);
     }
     .hero-card h2 {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       margin-bottom: 0.5rem;
       letter-spacing: .16em;
       text-transform: uppercase;
@@ -831,12 +758,34 @@
     <div class="brand">
       <div class="brand-mark">WJ</div>
       <span class="brand-title">WyattJoel Advisory Partners</span>
+      <button class="hamburger-menu" aria-label="Open navigation">
+        <span style="display:block; width:32px; height:32px;">
+          <span style="display:block; width:100%; height:4px; background:#004c97; margin:6px 0; border-radius:2px;"></span>
+          <span style="display:block; width:100%; height:4px; background:#004c97; margin:6px 0; border-radius:2px;"></span>
+          <span style="display:block; width:100%; height:4px; background:#004c97; margin:6px 0; border-radius:2px;"></span>
+        </span>
+      </button>
     </div>
     <nav class="main-nav">
       <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
       <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
+        /* Hamburger menu styles and mobile nav toggle */
+        @media (max-width: 800px) {
+          .hamburger-menu {
+            display: block !important;
+          }
+          .main-nav {
+            display: none;
+          }
+          .main-nav.open {
+            display: flex !important;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.5rem;
+          }
+        }
     </nav>
   </div>
 </header>
@@ -1098,7 +1047,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Prioritized design requirements through customer segmentation, moved to Agile & Lean development, integrated concurrent engineering, built visualization systems for work streams, ensured rigorous testing, and committed to design elements as late as possible.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             Improved end-to-end cycle | On-time delivery | Reduced development costs | Higher user acceptance | Low post-launch error rates | Real-time market responsiveness
           </p>
         </div>
@@ -1117,7 +1066,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Engaged business leaders in executive sessions to understand needs and gaps, focused design activity through qualitative scoring of requirements, cascaded functional requirements down to process levels, and flipped the change model to start and end with business leaders rather than IT.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             Reduced system error rates & eliminated Severity Classes 1&2 | Improved overall software performance | Increased customer & associate satisfaction | Decreased implementation complexity | Business-responsive systems
           </p>
         </div>
@@ -1136,7 +1085,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Leveraged concurrent engineering, DOE & QFD statistical methods to assess product gaps and manufacturing specs, conducted market segmentation analysis, assembled cross-functional teams of marketing, chemical, manufacturing engineers and R&D scientists focused on specific outcomes, and used Design of Experiments to uncover key effects and interactions.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             50%+ reduction in design lifecycle | Increased market share | Higher R&D pipeline adoption | Improved NPV | Higher development success rate | Improved revenue & operating costs | Enhanced product & process capability
           </p>
         </div>
@@ -1155,7 +1104,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Facilitated cross-LOB strategy workshops using Hoshin Kanri to align organization and link human capital to business goals, matched improvement approach to organizational context and problem type, built robust PMOs and governance, deployed experienced Lean Six Sigma leadership teams, and ensured proper financial benefit calculation.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             Billions in documented improvement | CAT stock $55→$95/share | GE, Microsoft, JPMorgan Chase sector leadership | Companies outperforming Dow Jones | Quality & speed improvements | Enhanced customer alignment
           </p>
         </div>
@@ -1174,7 +1123,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Designed and deployed an enterprise-level “Selling the Bank of America Way” playbook, engineered customer experience, deployed needs-based selling tools across 5700 branches, developed market capability algorithms, leveraged market demand models for goal setting, and customized product mix and sales targets by region.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             <strong>Impact:</strong> Moved the Bank from under $15B to $22B gross profit. Standardized selling routines, increased customer satisfaction, and reduced defections. Aggregate sales up 23% over 3 years, cross-sales ratio from 2.1 to 3.6, aggregate sales up 16%. Modeled store performance for higher market penetration and optimized leadership time allocation.
           </p>
         </div>
@@ -1193,7 +1142,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Moved from indiscriminate push offers to real-time, relationship-based offers using a prospect database and offer repository. Shifted to menu-driven, attribute-focused campaigns targeting customers by relationship, affinity, price sensitivity, and product interest. Reduced mailings per customer, increased capture and conversion rates, and coordinated cross-channel distribution for improved efficiency.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             <strong>Impact:</strong> $953M NPV in marketing cost reduction over 5 years (six channels), ROE up 7%, customer delight up 7%, direct mail costs down 8%, cost to acquire accounts down 11%, attrition from highest to lowest in industry, micro-segmentation strategy replicated across enterprise.
           </p>
         </div>
@@ -1212,7 +1161,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Ran parallel current-state analysis, identified redundant systems, built risk frameworks, and prioritized operational gaps. Developed project charters, held cross-functional workshops to uncover dependencies and risks, and executed projects through professional change managers with robust financial and communication routines.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             <strong>Impact:</strong> Completed Day One and go-live events with minimal critical errors. Key risks mitigated, customer satisfaction improved, and transitions became PR opportunities. Integrations finished on time and within budget, setting a new standard for post-merger re-engineering.
           </p>
         </div>
@@ -1231,7 +1180,7 @@
           <p style="margin-top: 0.5rem;">
             <strong>Action:</strong> Implemented S&OP discipline, built a multi‑tier control tower, consolidated suppliers, introduced parametric safety stocks, and automated replenishment with predictive analytics.
           </p>
-          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #000; font-weight: 900;">
             18% inventory reduction | 27% stockout decrease | 9% logistics cost savings | 12% lead‑time improvement | Tier‑2/3 visibility established
           </p>
         </div>
@@ -1296,6 +1245,26 @@
 </main>
 
 <script>
+          // Hamburger menu toggle for mobile
+          document.addEventListener('DOMContentLoaded', function() {
+            var hamburger = document.querySelector('.hamburger-menu');
+            var nav = document.querySelector('.main-nav');
+            if (hamburger && nav) {
+              hamburger.addEventListener('click', function() {
+                nav.classList.toggle('open');
+              });
+            }
+          });
+      // Hamburger menu toggle for mobile
+      document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.querySelector('.hamburger-menu');
+        var nav = document.querySelector('.main-nav');
+        if (hamburger && nav) {
+          hamburger.addEventListener('click', function() {
+            nav.classList.toggle('open');
+          });
+        }
+      });
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
