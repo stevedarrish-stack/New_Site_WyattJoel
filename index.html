@@ -5,6 +5,22 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+                                              /* --- Client Impact Snapshot: Mobile-only pill row and pill styles --- */
+                                              @media (max-width: 800px) {
+                                                .pill-row {
+                                                  gap: 0.3rem !important;
+                                                  margin-bottom: 0.4rem !important;
+                                                  flex-wrap: nowrap !important;
+                                                  overflow-x: auto !important;
+                                                  -webkit-overflow-scrolling: touch;
+                                                }
+                                                .pill {
+                                                  min-width: 70px !important;
+                                                  max-width: 90px !important;
+                                                  font-size: 0.65rem !important;
+                                                  padding: 0.12rem 0.4rem !important;
+                                                }
+                                              }
                                           @media (max-width: 800px) {
                                             .client-impact-card {
                                               padding: 0.7rem 0.4rem !important;
@@ -27,7 +43,9 @@
                                             .pill-row {
                                               gap: 0.3rem !important;
                                               margin-bottom: 0.4rem !important;
-                                              flex-wrap: wrap !important;
+                                              flex-wrap: nowrap !important;
+                                              overflow-x: auto !important;
+                                              -webkit-overflow-scrolling: touch;
                                             }
                                             .pill {
                                               min-width: 70px !important;
@@ -321,16 +339,46 @@
                   align-items: flex-start !important;
                 }
                 .pill-row {
+                  display: flex !important;
                   flex-wrap: nowrap !important;
                   gap: 0.18rem !important;
                   justify-content: center !important;
+                  align-items: center !important;
                   overflow-x: auto !important;
+                  margin-bottom: 0.4rem !important;
+                  background: none !important;
+                  padding: 0 !important;
+                  width: 100%;
                 }
                 .pill {
-                  min-width: 60px !important;
-                  max-width: 90px !important;
-                  font-size: 0.62rem !important;
-                  padding: 0.11rem 0.32rem !important;
+                  min-width: 70px !important;
+                  max-width: 110px !important;
+                  font-size: 0.65rem !important;
+                  padding: 0.12rem 0.4rem !important;
+                  white-space: nowrap !important;
+                  text-overflow: ellipsis !important;
+                  overflow: visible !important;
+                }
+                /* Specifically target the first pill (Finance) to never wrap */
+                .pill-row .pill:first-child {
+                  min-width: 90px !important;
+                  max-width: 110px !important;
+                  white-space: nowrap !important;
+                  text-overflow: ellipsis !important;
+                  overflow: visible !important;
+                }
+                .pill-hover {
+                  left: 50% !important;
+                  transform: translateX(-50%) !important;
+                  min-width: 180px !important;
+                  max-width: 220px !important;
+                  width: auto !important;
+                  font-size: 0.85rem !important;
+                  z-index: 10 !important;
+                  margin-top: 0.3rem !important;
+                  white-space: normal !important;
+                  word-break: break-word !important;
+                  text-align: left !important;
                 }
                 .client-impact-card p,
                 .client-impact-card .impact-label,
@@ -864,27 +912,24 @@
           <span class="impact-label" style="display:block; font-size:1rem; margin-top:0.3rem;">Years Running</span>
         </div>
       </div>
-        <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:flex-start; flex-wrap:nowrap; margin-bottom:0.7rem; position:relative;">
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
-          </div>
-          <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details" style="display:none; position:absolute; left:calc(12.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
-          </div>
-          <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details" style="display:none; position:absolute; left:calc(37.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
-          </div>
-          <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details" style="display:none; position:absolute; left:calc(62.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
-          <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-4" tabindex="0" type="button">Technology</button>
-          </div>
-          <span class="pill-menu" id="pill-menu-4" role="menu" aria-label="Technology details" style="display:none; position:absolute; left:calc(87.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+      <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:center; margin-bottom:0.7rem; overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">Financial
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
         </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">Healthcare
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">Public sector
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
+        </div>
+        <div class="pill" style="position:relative; border-radius:999px; border:1px solid rgba(148,163,184,0.6); padding:0.18rem 0.65rem; min-width:90px; max-width:110px; text-align:center; font-size:0.75rem; background:rgba(15,23,42,0.8); cursor:pointer; font-weight:500; overflow:visible; white-space:nowrap; text-overflow:ellipsis; z-index:3;" tabindex="0" onmouseover="this.querySelector('.pill-hover').style.display='block'" onmouseout="this.querySelector('.pill-hover').style.display='none'" onfocus="this.querySelector('.pill-hover').style.display='block'" onblur="this.querySelector('.pill-hover').style.display='none'">Technology
+          <span class="pill-hover" style="display:none; position:absolute; left:50%; transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our technology practice helps organizations harness automation, analytics, and AI to unlock new value, improve performance, and stay ahead of change.</span>
+        </div>
+      </div>
       <p style="font-size:0.78rem; margin-top:1rem; color:#fff; background:rgba(255,255,255,0.08); border-radius:0.5rem; padding:0.7rem 1rem; text-align:left; font-weight:400;">
         <span>WyattJoel is redefining the business landscape. Our clients consistently report that our solutions drive measurable impact—boosting operating leverage, elevating customer experience, and unlocking powerful collaboration.</span>
       </p>
+    </div>
 </div>
       </p>
     </aside>
@@ -1280,6 +1325,86 @@
 </main>
 
 <script>
+  // --- Unified pill popup logic for mobile and desktop ---
+  document.addEventListener('DOMContentLoaded', function() {
+    function isMobile() {
+      return window.innerWidth <= 800;
+    }
+    var pills = document.querySelectorAll('.pill');
+    pills.forEach(function(pill) {
+      // Desktop: hover/focus
+      pill.addEventListener('mouseover', function() {
+        if (isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (popup) popup.style.display = 'block';
+      });
+      pill.addEventListener('mouseout', function() {
+        if (isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (popup) popup.style.display = 'none';
+      });
+      pill.addEventListener('focus', function() {
+        if (isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (popup) popup.style.display = 'block';
+      });
+      pill.addEventListener('blur', function() {
+        if (isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (popup) popup.style.display = 'none';
+      });
+      // Mobile: tap/click/touch/focus/blur
+      pill.addEventListener('click', function(e) {
+        if (!isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (!popup) return;
+        var isVisible = popup.style.display === 'block';
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+        popup.style.display = isVisible ? 'none' : 'block';
+        if (!isVisible) e.stopPropagation();
+      });
+      pill.addEventListener('touchstart', function(e) {
+        if (!isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (!popup) return;
+        var isVisible = popup.style.display === 'block';
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+        popup.style.display = isVisible ? 'none' : 'block';
+        if (!isVisible) e.stopPropagation();
+      });
+      pill.addEventListener('focus', function() {
+        if (!isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (popup) popup.style.display = 'block';
+      });
+      pill.addEventListener('blur', function() {
+        if (!isMobile()) return;
+        var popup = pill.querySelector('.pill-hover');
+        if (popup) popup.style.display = 'none';
+      });
+    });
+    // Close all popups when tapping/clicking outside
+    document.addEventListener('click', function(e) {
+      if (!isMobile()) return;
+      if (!e.target.classList.contains('pill')) {
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+      }
+    });
+    document.addEventListener('touchstart', function(e) {
+      if (!isMobile()) return;
+      if (!e.target.classList.contains('pill')) {
+        document.querySelectorAll('.pill-hover').forEach(function(ph) {
+          ph.style.display = 'none';
+        });
+      }
+    });
+  });
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
@@ -1305,73 +1430,153 @@
             wrap.appendChild(tag);
             wrap.appendChild(h4);
             wrap.appendChild(p);
-            // Add hover description
-            const hoverDesc = document.createElement('div');
-            hoverDesc.className = 'insight-hover-desc';
-            hoverDesc.textContent =
-              item.hoverDesc ||
-              'Read more for actionable insights and practical steps to address this topic.';
-            wrap.appendChild(hoverDesc);
-            frag.appendChild(wrap);
-          });
-          listEl.appendChild(frag);
-          if (fallbackEl) fallbackEl.style.display = 'none';
-        })
-        .catch(() => {
-          // Keep fallback visible on error
-        });
-    }
-    // Contact form AJAX submit (Flask-compatible JSON)
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.onsubmit = async function(e) {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
-        try {
-          const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-          if (res.ok) {
-            alert('Thank you! We received your inquiry.');
-            contactForm.reset();
-          } else {
-            const errorText = await res.text();
-            alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
-          }
-        } catch (err) {
-          alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
-        }
-      };
-    }
-  })();
-</script>
-  <div style="color:transparent; font-size:0; height:0; overflow:hidden;">
-  // Enable pill popups on tap/click for mobile
-  document.addEventListener('DOMContentLoaded', function() {
-    var pills = document.querySelectorAll('.pill');
-    pills.forEach(function(pill) {
-      pill.addEventListener('click', function(e) {
-        // Only trigger on touch/click, not on desktop hover
-        var popup = pill.querySelector('.pill-hover');
-        if (!popup) return;
-        // If already visible, hide it
-        var isVisible = popup.style.display === 'block';
-        // Hide all other pill popups
-        document.querySelectorAll('.pill-hover').forEach(function(ph) {
-          ph.style.display = 'none';
-        });
-        // Toggle this one
-        popup.style.display = isVisible ? 'none' : 'block';
-        // Prevent scrolling on mobile when popup is open
-        if (!isVisible && window.innerWidth <= 600) {
-          e.stopPropagation();
-        }
-      });
-    });
-    // Hide pill popups when clicking elsewhere
+            (function(){
+              const listEl = document.getElementById('insights-list');
+              const fallbackEl = document.getElementById('insights-fallback');
+              if (listEl) {
+                fetch('insights.json', { cache: 'no-store' })
+                  .then(r => {
+                    if (!r.ok) throw new Error('Failed to load insights');
+                    return r.json();
+                  })
+                  .then(items => {
+                    if (!Array.isArray(items) || items.length === 0) return;
+                    const frag = document.createDocumentFragment();
+                    items.forEach(item => {
+                      const wrap = document.createElement('div');
+                      wrap.className = 'insight-item';
+                      const tag = document.createElement('div');
+                      tag.className = 'insight-tag';
+                      tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
+                      const h4 = document.createElement('h4');
+                      h4.textContent = item.title || '';
+                      const p = document.createElement('p');
+                      p.textContent = item.summary || '';
+                      wrap.appendChild(tag);
+                      wrap.appendChild(h4);
+                      wrap.appendChild(p);
+                      // Add hover description
+                      const hoverDesc = document.createElement('div');
+                      hoverDesc.className = 'insight-hover-desc';
+                      hoverDesc.textContent =
+                        item.hoverDesc ||
+                        'Read more for actionable insights and practical steps to address this topic.';
+                      wrap.appendChild(hoverDesc);
+                      frag.appendChild(wrap);
+                    });
+                    listEl.appendChild(frag);
+                    if (fallbackEl) fallbackEl.style.display = 'none';
+                  })
+                  .catch(() => {
+                    // Keep fallback visible on error
+                  });
+              }
+              // Contact form AJAX submit (Flask-compatible JSON)
+              const contactForm = document.getElementById('contact-form');
+              if (contactForm) {
+                contactForm.onsubmit = async function(e) {
+                  e.preventDefault();
+                  const formData = new FormData(contactForm);
+                  const data = Object.fromEntries(formData.entries());
+                  try {
+                    const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(data)
+                    });
+                    if (res.ok) {
+                      alert('Thank you! We received your inquiry.');
+                      contactForm.reset();
+                    } else {
+                      const errorText = await res.text();
+                      alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
+                    }
+                  } catch (err) {
+                    alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
+                  }
+                };
+              }
+              // Unified pill popup logic for mobile (touch/click/focus/blur)
+              document.addEventListener('DOMContentLoaded', function() {
+                function isMobile() {
+                  return window.innerWidth <= 800;
+                }
+                var pills = document.querySelectorAll('.pill');
+                pills.forEach(function(pill) {
+                  // Desktop: hover/focus
+                  pill.addEventListener('mouseover', function() {
+                    if (isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (popup) popup.style.display = 'block';
+                  });
+                  pill.addEventListener('mouseout', function() {
+                    if (isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (popup) popup.style.display = 'none';
+                  });
+                  pill.addEventListener('focus', function() {
+                    if (isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (popup) popup.style.display = 'block';
+                  });
+                  pill.addEventListener('blur', function() {
+                    if (isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (popup) popup.style.display = 'none';
+                  });
+                  // Mobile: tap/click/touch/focus/blur
+                  pill.addEventListener('click', function(e) {
+                    if (!isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (!popup) return;
+                    var isVisible = popup.style.display === 'block';
+                    document.querySelectorAll('.pill-hover').forEach(function(ph) {
+                      ph.style.display = 'none';
+                    });
+                    popup.style.display = isVisible ? 'none' : 'block';
+                    if (!isVisible) e.stopPropagation();
+                  });
+                  pill.addEventListener('touchstart', function(e) {
+                    if (!isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (!popup) return;
+                    var isVisible = popup.style.display === 'block';
+                    document.querySelectorAll('.pill-hover').forEach(function(ph) {
+                      ph.style.display = 'none';
+                    });
+                    popup.style.display = isVisible ? 'none' : 'block';
+                    if (!isVisible) e.stopPropagation();
+                  });
+                  pill.addEventListener('focus', function() {
+                    if (!isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (popup) popup.style.display = 'block';
+                  });
+                  pill.addEventListener('blur', function() {
+                    if (!isMobile()) return;
+                    var popup = pill.querySelector('.pill-hover');
+                    if (popup) popup.style.display = 'none';
+                  });
+                });
+                // Close all popups when tapping/clicking outside
+                document.addEventListener('click', function(e) {
+                  if (!isMobile()) return;
+                  if (!e.target.classList.contains('pill')) {
+                    document.querySelectorAll('.pill-hover').forEach(function(ph) {
+                      ph.style.display = 'none';
+                    });
+                  }
+                });
+                document.addEventListener('touchstart', function(e) {
+                  if (!isMobile()) return;
+                  if (!e.target.classList.contains('pill')) {
+                    document.querySelectorAll('.pill-hover').forEach(function(ph) {
+                      ph.style.display = 'none';
+                    });
+                  }
+                });
+              });
+            })();
     document.addEventListener('click', function(e) {
       if (!e.target.classList.contains('pill')) {
         document.querySelectorAll('.pill-hover').forEach(function(ph) {
@@ -1490,57 +1695,3 @@ if __name__ == '__main__':
   </div>
 </footer>
 
-<script>
-// Pill hover/tap/focus popup for Client Impact Snapshot
-// Pill hover/tap/focus popup for Client Impact Snapshot
-(function(){
-  var pills = document.querySelectorAll('.pill');
-  var menus = document.querySelectorAll('.pill-menu');
-  function hideAllMenus() {
-    menus.forEach(function(menu) {
-      menu.style.display = 'none';
-    });
-    pills.forEach(function(pill) {
-      pill.setAttribute('aria-expanded', 'false');
-    });
-  }
-  pills.forEach(function(pill, idx) {
-    var menu = menus[idx];
-    // Show on hover/focus (desktop) and tap/click (mobile)
-    pill.addEventListener('mouseenter', function() {
-      if (window.innerWidth > 800) {
-        hideAllMenus();
-        menu.style.display = 'block';
-        pill.setAttribute('aria-expanded', 'true');
-      }
-    });
-    pill.addEventListener('mouseleave', function() {
-      if (window.innerWidth > 800) {
-        menu.style.display = 'none';
-        pill.setAttribute('aria-expanded', 'false');
-      }
-    });
-    pill.addEventListener('focus', function() {
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
-    });
-    pill.addEventListener('blur', function() {
-      menu.style.display = 'none';
-      pill.setAttribute('aria-expanded', 'false');
-    });
-    pill.addEventListener('click', function(e) {
-      e.stopPropagation();
-      hideAllMenus();
-      menu.style.display = 'block';
-      pill.setAttribute('aria-expanded', 'true');
-    });
-  });
-  // Hide menus when clicking elsewhere
-  document.addEventListener('click', function(e) {
-    if (!e.target.classList.contains('pill')) {
-      hideAllMenus();
-    }
-  });
-})();
-</script>
