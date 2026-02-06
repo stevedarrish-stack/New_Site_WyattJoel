@@ -1,46 +1,40 @@
-    @media (max-width: 800px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0.5rem 0.5rem;
-      }
-      .main-nav {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-      }
-      .brand {
-        position: sticky !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        z-index: 2000 !important;
-        background: #fff !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-      }
-      main {
-        margin-top: 0 !important;
-      }
-      .shell {
-        padding: 0.5rem;
-        max-width: 100vw;
-      }
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 1rem 0.2rem;
-      }
-      .card, .case-study {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100vw !important;
-      }
-    }
-
-<script>
-    const listEl = document.getElementById('insights-list');
-    const fallbackEl = document.getElementById('insights-fallback');
-    <!-- removed duplicate script block for insights fetch -->
-</script>
+position: relative;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WyAttJoel Advisory Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="top consulting firm, strategy consulting, best strategy consultants, business strategy, management consulting, WyAttJoel Advisory Partners, leading consulting firm, strategic planning, business transformation, growth consulting, top strategy firm" />
+  <meta name="description" content="WyAttJoel Advisory Partners is recognized as a top consulting firm for strategy, business transformation, and growth. Trusted by leading organizations for expert strategic planning and management consulting." />
+  <link rel="canonical" href="https://yourdomain.com/" />
+  <style>
+                                                                                                  @media (max-width: 600px) {
+                                                                                                          main, .main-content, section, .client-impact-card, .card, .case-study, .card-grid {
+                                                                                                            box-sizing: border-box !important;
+                                                                                                            padding-left: 0.5rem !important;
+                                                                                                            padding-right: 0.5rem !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 200 !important;
+      background: #fff !important;
+      box-sizing: border-box !important;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+                                                                                                            max-width: 98vw !important;
+                                                                                                            width: 100% !important;
+                                                                                                          }
+                                                                                                          .card-grid {
+                                                                                                            gap: 0.7rem !important;
+                                                                                                            flex-wrap: wrap !important;
+                                                                                                          }
+                                                                                                          .client-impact-card {
+                                                                                                            padding: 1rem 0.5rem 1.2rem 0.5rem !important;
                                                                                                             max-width: 99vw !important;
                                                                                                             min-width: 0 !important;
                                                                                                           }
@@ -50,7 +44,41 @@
                                                                                                             padding: 0.7rem 0.2rem 1rem 0.2rem !important;
                                                                                                             box-sizing: border-box !important;
                                                                                                           }
-
+                                                                                                          .pill-row {
+                                                                                                            display: flex !important;
+                                                                                                            flex-wrap: nowrap !important;
+                                                                                                            gap: 0.4rem !important;
+                                                                                                            justify-content: space-evenly !important;
+                                                                                                            width: 100vw !important;
+                                                                                                            max-width: 100vw !important;
+                                                                                                            overflow-x: hidden !important;
+                                                                                                            white-space: nowrap !important;
+                                                                                                            box-sizing: border-box !important;
+                                                                                                          }
+                                                                                                          .pill {
+                                                                                                            flex: 1 1 0 !important;
+                                                                                                            min-width: 0 !important;
+                                                                                                            max-width: 100% !important;
+                                                                                                            margin: 0.2rem 0.1rem !important;
+                                                                                                            font-size: 0.92rem !important;
+                                                                                                            text-align: center !important;
+                                                                                                          }
+                                                                                                          .pill-menu {
+                                                                                                            max-width: 98vw !important;
+                                                                                                            min-width: 120px !important;
+                                                                                                            left: 50% !important;
+                                                                                                            transform: translateX(-50%) !important;
+                                                                                                            white-space: normal !important;
+                                                                                                            word-break: break-word !important;
+                                                                                                            position: absolute !important;
+                                                                                                            top: 110% !important;
+                                                                                                            z-index: 10 !important;
+                                                                                                          }
+                                                                                                          .pill {
+                                                                                                            font-size: 0.92rem !important;
+                                                                                                            padding: 0.45rem 0.9rem !important;
+                                                                                                            min-width: 0 !important;
+                                                                                                            max-width: 90vw !important;
                                                                                                             margin: 0.2rem 0.1rem !important;
                                                                                                           }
                                                                                                           .pill-menu {
@@ -63,41 +91,377 @@
                                                                                                             flex-direction: column !important;
                                                                                                             align-items: center !important;
                                                                                                             text-align: center !important;
-                                                                                                              box-sizing: border-box !important;
-                                                                                                              padding-left: 0.5rem !important;
-                                                                                                              padding-right: 0.5rem !important;
-                                                                                                              margin-left: 0 !important;
-                                                                                                              margin-right: 0 !important;
-                                                                                                              max-width: 100vw !important;
-                                                                                                              width: 100vw !important;
-                                                                                                            }
-                                                                                                            .card, .case-study {
-                                                                                                              min-width: 0 !important;
-          position: sticky !important;
-          top: 0 !important;
-          z-index: 200 !important;
-          background: #fff !important;
-          box-sizing: border-box !important;
-          display: flex;
-          align-items: center;
-          gap: 0.55rem;
-          font-size: 0.9rem;
-          font-weight: 600;
-          letter-spacing: .16em;
-          text-transform: uppercase;
-                                                                                                              max-width: 98vw !important;
-                                                                                                              width: 100% !important;
+                                                                                                            gap: 0.3rem !important;
+                                                                                                          }
+                                                                                                    header {
+                                                                                                      position: sticky !important;
+                                                                                                      top: 0 !important;
+                                                                                                      z-index: 100 !important;
+                                                                                                      background: #fff !important;
+                                                                                                      border-bottom: 1px solid #e5e7eb !important;
+                                                                                                    }
+                                                                                                    .brand {
+                                                                                                      font-size: 1.1rem !important;
+                                                                                                      width: 100vw !important;
+                                                                                                      max-width: 100vw !important;
+                                                                                                      white-space: normal !important;
+                                                                                                      overflow: visible !important;
+                                                                                                      text-overflow: unset !important;
+                                                                                                      text-align: center !important;
+                                                                                                      margin: 0 auto 0.2rem auto !important;
+                                                                                                      padding: 0.7rem 0.5rem 0.2rem 0.5rem !important;
+                                                                                                      display: block !important;
+                                                                                                      word-break: break-word !important;
+                                                                                                      position: sticky !important;
+                                                                                                      top: 0 !important;
+                                                                                                      z-index: 200 !important;
+                                                                                                      background: #fff !important;
+                                                                                                      box-sizing: border-box !important;
+                                                                                                    }
+                                                                                                    main, .main-content, section, .card, .case-study, .card-grid {
+                                                                                                      box-sizing: border-box !important;
+                                                                                                      max-width: 100vw !important;
+                                                                                                      width: 100vw !important;
                                                                                                       margin-left: 0 !important;
                                                                                                       margin-right: 0 !important;
                                                                                                       padding-left: 0 !important;
-                                                                  /* All mobile-specific CSS and media queries removed. Desktop site is now the only layout. */
+                                                                                                      padding-right: 0 !important;
+                                                                                                    }
+                                                                                                    .mobile-nav-btn {
+                                                                                                      display: flex !important;
+                                                                                                      margin: 0 auto 0.7rem auto !important;
+                                                                                                      position: static !important;
+                                                                                                      justify-content: center !important;
+                                                                                                    }
+                                                                                                  }
+                                                                                              html, body {
+                                                                                                overflow-x: hidden !important;
+                                                                                                max-width: 100vw !important;
+                                                                                              }
+                                                                                          .pill-menu {
+                                                                                            display: none;
+                                                                                            position: absolute;
+                                                                                            left: 0;
+                                                                                            top: 110%;
+                                                                                            min-width: 120px !important;
+                                                                                            max-width: 180px !important;
+                                                                                            background: #fff;
+                                                                                            color: #17305c;
+                                                                                            font-size: 0.82rem;
+                                                                                            padding: 0.5rem 0.7rem !important;
+                                                                                            border-radius: 0.7rem;
+                                                                                            box-shadow: 0 4px 16px rgba(15,23,42,0.13);
+                                                                                            z-index: 100;
+                                                                                                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+                                                                                                  <strong>Impact:</strong> $953M NPV in marketing cost reduction over 5 years (six channels), ROE up 7%, customer delight up 7%, direct mail costs down 8%, cost to acquire accounts down 11%, attrition from highest to lowest in industry, micro-segmentation strategy replicated across enterprise.
+                                                                                                </p>
+                                                                                              </div>
+                                                                                              <div class="hover-indicator">Hover to read more</div>
+                                                                                            </article>
+                                                                                            <article class="card case-study" tabindex="0" style="flex: 1 1 320px; min-width: 320px; max-width: 420px;">
+                                                                                              <span>Financial Services M&A Optimization</span>
+                                                                                              <h3>Optimizing Behemoth Financial Services Environments M&A</h3>
+                                                                                              <p class="section-lead" style="margin-bottom:0.9rem;">
+                                                                                                A complex merger integration delivered on‑time, low‑risk Day One and go‑live, protecting customers and performance while setting a new execution standard.
+                                                                                              </p>
+                                                                                              <div class="case-body">
+                                                                                                <p>
+                                                                                                  <strong>Issue:</strong> Conducting large-scale merger integrations without negatively impacting customer-facing systems or BAU performance. Needed to ensure flawless execution, manage risk, and report progress to stakeholders while avoiding business loss or reputational damage.
+                                                                                                </p>
+                                                                                                <p style="margin-top: 0.5rem;">
+                                                                                                  <strong>Action:</strong> Ran parallel current-state analysis, identified redundant systems, built risk frameworks, and prioritized operational gaps. Developed project charters, held cross-functional workshops to uncover dependencies and risks, and executed projects through professional change managers with robust financial and communication routines.
+                                                                                                </p>
+                                                                                                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+                                                                                                  <strong>Impact:</strong> Completed Day One and go-live events with minimal critical errors. Key risks mitigated, customer satisfaction improved, and transitions became PR opportunities. Integrations finished on time and within budget, setting a new standard for post-merger re-engineering.
+                                                                                                </p>
+                                                                                              </div>
+                                                                                              <div class="hover-indicator">Hover to read more</div>
+                                                                                            </article>
+                                                                                            <article class="card case-study" tabindex="0" style="flex: 1 1 320px; min-width: 320px; max-width: 420px;">
+                                                                                              <span>Manufacturing Supply Chain Optimization</span>
+                                                                                              <h3>Stabilizing Global Supply Chains for Resilience & Cost</h3>
+                                                                                              <p class="section-lead" style="margin-bottom:0.9rem;">
+                                                                                                A global manufacturer redesigned planning, sourcing, and fulfillment to cut costs, reduce stockouts, and build resilience across suppliers and regions.
+                                                                                              </p>
+                                                                                              <div class="case-body">
+                                                                                                <p>
+                                                                                                  <strong>Issue:</strong> Volatile demand and fragmented supplier networks caused stockouts, excess inventory, and missed service levels. Limited visibility across tiers and manual planning created delays and cost overruns.
+                                                                                                </p>
+                                                                                                <p style="margin-top: 0.5rem;">
+                                                                                                  <strong>Action:</strong> Implemented S&OP discipline, built a multi‑tier control tower, consolidated suppliers, introduced parametric safety stocks, and automated replenishment with predictive analytics.
+                                                                                                </p>
+                                                                                                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #004c97; font-weight: 600;">
+                                                                                                  18% inventory reduction | 27% stockout decrease | 9% logistics cost savings | 12% lead‑time improvement | Tier‑2/3 visibility established
+                                                                                                </p>
+                                                                                              </div>
+                                                                                              <div class="hover-indicator">Hover to read more</div>
+                                                                                            </article>
+                                                                                          </div>
+                                    }
+                                    .mobile-nav.open {
+                                      display: flex !important;
+                                    }
+                                    .mobile-nav a {
+                                      /* white-space: nowrap !important; */
+                                      display: block !important;
+                                      margin-bottom: 1rem !important;
+                                      font-size: 1.1rem !important;
+                                    }
+                                    .mobile-nav a:last-child {
+                                      margin-bottom: 0 !important;
+                                    }
+                                    .mobile-nav-close {
+                                      align-self: flex-end !important;
+                                      margin-bottom: 1rem !important;
+                                      font-size: 2rem !important;
+                                      background: none !important;
+                                      border: none !important;
+                                      color: #004c97 !important;
+                                      cursor: pointer !important;
+                                    }
+                                  /* block closed properly */
+                              @media (max-width: 800px) {
+                                .nav-inner {
+                                  flex-direction: column !important;
+                                  align-items: flex-start !important;
+                                }
+                                .brand {
+                                  margin-bottom: 0.5rem;
+                                }
+                                .mobile-nav-btn {
+                                  display: flex !important;
+                                  margin-top: 0.2rem;
+                                  margin-bottom: 0.7rem;
+                                  align-self: flex-start;
+                                }
+                                nav:not(.mobile-nav) {
+                                  display: none !important;
+                                }
+                                .mobile-nav {
+                                  display: flex !important;
+                                  flex-direction: column;
+                                  width: 100vw;
+                                  position: absolute;
+                                  top: 100%;
+                                  left: 0;
+                                  background: #fff;
+                                  z-index: 1000;
+                                  box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+                                  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+                                }
+                                .mobile-nav a {
+                                  white-space: nowrap;
+                                  display: block;
+                                  margin-bottom: 1rem;
+                                  font-size: 1.1rem;
+                                }
+                                .mobile-nav a:last-child {
+                                  margin-bottom: 0;
+                                }
+                                .mobile-nav-close {
+                                  align-self: flex-end;
+                                  margin-bottom: 1rem;
+                                  font-size: 2rem;
+                                  background: none;
+                                  border: none;
+                                  color: #004c97;
+                                  cursor: pointer;
+                                }
+                              }
+                          @media (max-width: 800px) {
+                            .nav-inner {
+                              flex-direction: column !important;
+                              align-items: center !important;
+                            }
+                            .brand {
+                              width: 100vw;
+                              text-align: center;
+                              margin-bottom: 0.5rem;
+                            }
+                            .mobile-nav-btn {
+                              display: flex !important;
+                              margin-top: 0.2rem;
+                              margin-bottom: 0.7rem;
+                              align-self: center;
+                            }
+                            nav.main-nav {
+                              display: none !important;
+                            }
+                          }
+                      /* Hamburger and mobile nav styles */
+                      @media (max-width: 800px) {
+                        .mobile-nav-btn {
+                          display: flex;
+                        }
+                        .mobile-nav {
+                          display: none;
+                        }
+                        .mobile-nav.open {
+                          display: flex;
+                        }
+                      }
+                      @media (min-width: 801px) {
+                        .mobile-nav-btn,
+                        .mobile-nav {
+                          display: none !important;
+                        }
+                      }
+                      .mobile-nav-btn {
+                        display: none;
+                        background: none;
+                        border: none;
+                        position: absolute;
+                        right: 1.5rem;
+                        top: 1.2rem;
+                        z-index: 20;
+                        flex-direction: column;
                         justify-content: center;
                         align-items: center;
                         width: 38px;
                         height: 38px;
                         cursor: pointer;
                       }
-/* All mobile-specific CSS and media queries removed. Desktop site is now the only layout. */
+                      .mobile-nav-btn span {
+                        display: block;
+                        width: 26px;
+                        height: 3px;
+                        margin: 4px 0;
+                        background: #004c97;
+                        border-radius: 2px;
+                        transition: 0.2s;
+                      }
+                      .mobile-nav {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        width: 80vw;
+                        max-width: 320px;
+                        height: 100vh;
+                        background: #fff;
+                        box-shadow: -2px 0 18px rgba(15,23,42,0.13);
+                        z-index: 100;
+                        padding: 2.5rem 1.5rem 1.5rem 2rem;
+                        flex-direction: column;
+                        gap: 1.5rem;
+                        animation: slideInNav 0.22s cubic-bezier(.4,0,.2,1);
+                      }
+                      .mobile-nav a {
+                        color: #004c97;
+                        font-size: 1.15rem;
+                        font-weight: 600;
+                        text-decoration: none;
+                        margin-bottom: 1.2rem;
+                        display: block;
+                      }
+                      .mobile-nav-close {
+                        position: absolute;
+                        top: 1.1rem;
+                        right: 1.2rem;
+                        background: none;
+                        border: none;
+                        font-size: 2rem;
+                        color: #004c97;
+                        cursor: pointer;
+                      }
+                      @keyframes slideInNav {
+                        from { right: -100vw; opacity: 0; }
+                        to { right: 0; opacity: 1; }
+                      }
+                  /* Desktop: Set Pers.jpg to 3.5in x 3.5in in INSIGHTS */
+                  @media (min-width: 601px) {
+                    .insights-pers-img {
+                      width: 3.5in !important;
+                      height: 3.5in !important;
+                      max-width: 100%;
+                      max-height: 100%;
+                      border-radius: 1.1rem;
+                      object-fit: cover;
+                      box-shadow: 0 4px 18px rgba(15,23,42,0.13);
+                      display: block;
+                      margin-top: 1.1rem;
+                      margin-bottom: 0.7rem;
+                    }
+                  }
+              /* Mobile improvements for Client Impact Snapshot */
+              @media (max-width: 600px) {
+                html, body {
+                  width: 100vw !important;
+                  min-width: 100vw !important;
+                  max-width: 100vw !important;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                  box-sizing: border-box !important;
+                  overflow-x: hidden !important;
+                }
+                main, section, .container, .client-impact-card, .brand {
+                  width: 100vw !important;
+                  min-width: 100vw !important;
+                  max-width: 100vw !important;
+                  margin-left: 0 !important;
+                  margin-right: 0 !important;
+                  border-radius: 0 !important;
+                  box-sizing: border-box !important;
+                  padding-left: 0 !important;
+                  padding-right: 0 !important;
+                }
+                .brand {
+                  margin-bottom: 0.5rem;
+                  flex-direction: row !important;
+                  justify-content: center !important;
+                  align-items: center !important;
+                  gap: 0.4rem !important;
+                  font-size: 1.1rem !important;
+                  white-space: nowrap !important;
+                  text-align: center !important;
+                }
+                .brand-mark {
+                  font-size: 1.3rem !important;
+                  min-width: 1.7em;
+                }
+                .brand span {
+                  font-size: 1.1rem !important;
+                  white-space: nowrap !important;
+                  display: inline-block !important;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis !important;
+                  max-width: 80vw !important;
+                  vertical-align: middle !important;
+                }
+                .client-impact_card h2 {
+                  font-size: 1.3rem !important;
+                  padding: 0 0.2rem !important;
+                }
+                .impact-stats {
+                  flex-direction: row !important;
+                  gap: 1rem !important;
+                  justify-content: center !important;
+                  align-items: flex-start !important;
+                }
+                .pill-row {
+                  flex-wrap: nowrap !important;
+                  gap: 1.5rem !important;
+                  justify-content: space-evenly !important;
+                  overflow-x: auto !important;
+                }
+                .pill {
+                  min-width: 140px !important;
+                  max-width: 100%;
+                  font-size: 1rem !important;
+                  padding: 0.4rem 1.2rem !important;
+                  white-space: normal !important;
+                }
+                .client-impact-card p,
+                .client-impact-card .impact-label,
+                .client-impact-card .impact-number {
+                  font-size: 0.95rem !important;
+                }
+                .client-impact-card p:last-child {
+                  font-size: 0.68rem !important;
+                  line-height: 1.2 !important;
+                  margin-top: 0.5rem !important;
+                }
+              }
           /* WHAT WE DO hover popup: match INSIGHTS style exactly */
           .whatwedo-hover-popup {
             display: none;
@@ -126,8 +490,9 @@
           .hover-col:focus-within .whatwedo-hover-popup {
             display: block;
           }
-        /* removed misplaced HTML and invalid CSS */
-        /* removed stray closing brace */
+      </footer>
+          margin-top: 0.2rem;
+        }
         .impact-actions {
           display: flex;
           gap: 1rem;
@@ -159,20 +524,16 @@
       background: transparent;
       color: #111827;
       -webkit-font-smoothing: antialiased;
-    /* removed stray closing brace */
+    }
     /* Removed animated gradient background */
     header {
-    header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100vw;
-      z-index: 1000;
-      background: #fff;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid #e5e7eb;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      z-index: 10;
     }
-    /* removed stray closing brace */
     .nav-inner {
       max-width: 1120px;
       margin: 0 auto;
@@ -181,7 +542,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-    /* removed stray closing brace */
+    }
 
 
 
@@ -204,11 +565,21 @@
 
 
 
-        /* removed duplicate .brand sticky block */
-          word-break: break-word !important;
-        main {
-          margin-top: 60px; /* adjust if .brand height changes */
-        }
+    
+    .brand {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 200 !important;
+      background: #fff !important;
+      box-sizing: border-box !important;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
     .brand-mark {
       width: 26px;
       height: 26px;
@@ -221,8 +592,18 @@
       font-size: 0.75rem;
       font-weight: 700;
       box-shadow: 0 8px 18px rgba(15,23,42,0.35);
-    /* removed stray closing brace */
-      /* removed duplicate .brand sticky block */
+    }
+      .brand {
+        font-size: 1.1rem !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        text-align: center !important;
+        margin: 0 auto 0.2rem auto !important;
+        padding: 0.7rem 0.5rem 0.2rem 0.5rem !important;
+        display: block !important;
         word-break: break-word !important;
       }
     }
@@ -374,7 +755,43 @@
       z-index: 100;
       white-space: normal;
       word-break: break-word;
-      /* removed stray text-align property outside selector */
+      text-align: left;
+    @media (hover: hover) and (pointer: fine) {
+      .pill-row > div:hover .pill-menu,
+      .pill-row > div:focus-within .pill-menu {
+        display: block !important;
+      }
+    }
+    }
+    @media (max-width: 600px) {
+      .pill-menu {
+        position: absolute !important;
+        left: 50% !important;
+        top: 110% !important;
+        transform: translateX(-50%) !important;
+        min-width: 100px !important;
+        max-width: 80vw !important;
+        width: auto !important;
+        font-size: 0.95rem !important;
+        padding: 0.6rem 0.7rem !important;
+        z-index: 9999 !important;
+        border-radius: 0.7rem !important;
+        box-shadow: 0 4px 16px rgba(15,23,42,0.13) !important;
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 200 !important;
+          background: #fff !important;
+          box-sizing: border-box !important;
+        }
+        color: #17305c !important;
+      }
+      .pill-row {
+        overflow-x: auto !important;
+        position: relative !important;
+        z-index: 1;
+      }
+    }
+    .pill {
       background: #111;
       color: #fff;
       border-radius: 2rem;
@@ -396,30 +813,27 @@
       background: #333;
       outline: none;
     }
-        .brand {
-          position: fixed !important;
-          top: 0 !important;
-          left: 0 !important;
-          width: 100vw !important;
-          z-index: 2000 !important;
-          background: #fff !important;
-          box-sizing: border-box !important;
-          display: flex !important;
-          align-items: center !important;
-          gap: 0.55rem !important;
-          font-size: 1.1rem !important;
-          font-weight: 600 !important;
-          letter-spacing: .16em !important;
-          text-transform: uppercase !important;
-          max-width: 100vw !important;
-          white-space: normal !important;
-          overflow: visible !important;
-          text-overflow: unset !important;
-          text-align: center !important;
-          margin: 0 auto 0.2rem auto !important;
-          padding: 0.7rem 0.5rem 0.2rem 0.5rem !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-        }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.2rem;
+      margin-top: 2.2rem;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+      color: #004c97;
+      font-weight: bold;
+    }
     .section-lead {
       font-size: 0.98rem;
       color: #4b5563;
@@ -580,6 +994,11 @@
       gap: 1rem;
       align-items: center;
     }
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="WyAttJoel Advisory Partners" />
@@ -603,19 +1022,23 @@
   </div>
 <header>
   <div class="nav-inner" style="position:relative;">
-    <div class="brand">
-      <div class="brand-mark">WJ</div>
-      WyattJoel Advisory Partners
+    <div class="brand" style="font-size:2rem;">
+      <div class="brand-mark" style="font-size:2.5rem;">WJ</div>
+      <span style="font-size:1.5rem; vertical-align:middle;">WyattJoel Advisory Partners</span>
     </div>
-    <nav>
+    <button class="mobile-nav-btn" aria-label="Open navigation" style="display:none;">
+      <span style="width:28px; height:4px; background:#004c97; display:block; margin:5px 0; border-radius:2px;"></span>
+      <span style="width:28px; height:4px; background:#004c97; display:block; margin:5px 0; border-radius:2px;"></span>
+      <span style="width:28px; height:4px; background:#004c97; display:block; margin:5px 0; border-radius:2px;"></span>
+    </button>
+    <nav class="main-nav">
       <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
       <a href="#insights" style="color:#004c97; font-weight:bold;">Insights</a>
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
     </nav>
   </div>
-  </header>
-
+</header>
 
 <main class="shell">
   <section class="hero">
@@ -988,7 +1411,9 @@
 </main>
 
 <script>
-  // removed duplicate variable declarations for listEl and fallbackEl
+  (function(){
+    const listEl = document.getElementById('insights-list');
+    const fallbackEl = document.getElementById('insights-fallback');
     if (listEl) {
       fetch('insights.json', { cache: 'no-store' })
         .then(r => {
@@ -1020,10 +1445,7 @@
             wrap.appendChild(hoverDesc);
             frag.appendChild(wrap);
           });
-        });
-    }
-
-
+-->
 <footer>
   <div class="footer-inner">
     <div>© WyAttJoel Advisory Partners. All rights reserved.</div>
@@ -1033,7 +1455,6 @@
 
 
 
-<!--
 <script>
 // Pill hover/tap/focus popup for Client Impact Snapshot (robust, works for all devices)
 (function(){
@@ -1086,4 +1507,3 @@
   });
 })();
 </script>
--->
