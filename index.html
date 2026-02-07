@@ -3,72 +3,10 @@
  <head>
  <meta charset="UTF-8" />
   <title>WyAttJoel Advisory Partners</title>
+  <style>
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* Strictly mobile-only hamburger menu and nav */
-    @media (max-width: 800px) {
-      .wj-mobile-nav-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        top: 0.5rem;
-        right: 1rem;
-        z-index: 2001;
-      }
-      .wj-mobile-nav-btn span {
-        display: block;
-        height: 4px;
-        width: 28px;
-        margin: 4px 0;
-        background: #004c97;
-        border-radius: 2px;
-        transition: 0.3s;
-      }
-      .wj-mobile-nav {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #fff;
-        z-index: 2000;
-        box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-        padding: 2.5rem 1.5rem 1.5rem 1.5rem;
-      }
-      .wj-mobile-nav.open {
-        display: flex;
-      }
-      .wj-mobile-nav a {
-        color: #004c97;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-bottom: 1.2rem;
-        text-decoration: none;
-      }
-      .wj-mobile-nav a:last-child {
-        margin-bottom: 0;
-      }
-      .wj-mobile-nav-close {
-        align-self: flex-end;
-        font-size: 2.2rem;
-        background: none;
-        border: none;
-        color: #004c97;
-        cursor: pointer;
-        margin-bottom: 1.5rem;
-      }
-      .nav-inner .main-nav {
-        display: none !important;
-      }
-    }
                                           @media (max-width: 800px) {
                                             .client-impact-card {
                                               padding: 0.7rem 0.4rem !important;
@@ -682,6 +620,16 @@
       color: #e5e7eb;
       background: rgba(15,23,42,0.8);
     }
+
+    /* Force blue color for specific pills */
+    .pill[data-pill="Financial services"],
+    .pill[data-pill="Healthcare"],
+    .pill[data-pill="Public sector"],
+    .pill[data-pill="Public and social sector"] {
+      color: #fff !important;
+      background: #004c97 !important;
+      border-color: #004c97 !important;
+    }
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -886,20 +834,7 @@
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
     </nav>
-    <!-- Mobile hamburger button (mobile only) -->
-    <button class="wj-mobile-nav-btn" aria-label="Open navigation" onclick="document.querySelector('.wj-mobile-nav').classList.add('open');this.style.display='none';" style="display:none;">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <!-- Mobile nav (mobile only) -->
-    <nav class="wj-mobile-nav" aria-label="Mobile navigation">
-      <button class="wj-mobile-nav-close" aria-label="Close navigation" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">&times;</button>
-      <a href="#services" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Services</a>
-      <a href="#insights" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Insights</a>
-      <a href="#industries" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Industries</a>
-      <a href="#contact" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Contact</a>
-    </nav>
+    <!-- Removed all mobile hamburger/menu elements from desktop markup -->
   </div>
 </header>
 
@@ -945,15 +880,15 @@
       </div>
         <div class="pill-row" style="display:flex; gap:0.5rem; justify-content:center; align-items:flex-start; flex-wrap:nowrap; margin-bottom:0.7rem; position:relative;">
           <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
+            <button class="pill" data-pill="Financial services" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-1" tabindex="0" type="button">Financial services</button>
           </div>
           <span class="pill-menu" id="pill-menu-1" role="menu" aria-label="Financial services details" style="display:none; position:absolute; left:calc(12.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We help banks, insurers, and asset managers modernize operations, manage risk, and drive growth through digital transformation and regulatory expertise.</span>
           <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
+            <button class="pill" data-pill="Healthcare" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-2" tabindex="0" type="button">Healthcare</button>
           </div>
           <span class="pill-menu" id="pill-menu-2" role="menu" aria-label="Healthcare details" style="display:none; position:absolute; left:calc(37.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">Our healthcare work improves patient outcomes, streamlines care delivery, and enables providers to leverage data and technology for better results.</span>
           <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
-            <button class="pill" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
+            <button class="pill" data-pill="Public sector" aria-haspopup="true" aria-expanded="false" aria-controls="pill-menu-3" tabindex="0" type="button">Public sector</button>
           </div>
           <span class="pill-menu" id="pill-menu-3" role="menu" aria-label="Public sector details" style="display:none; position:absolute; left:calc(62.5% + 0.25rem); transform:translateX(-50%); top:110%; min-width:180px; max-width:220px; width:auto; background:#e1effa; color:#17305c; font-size:0.85rem; padding:0.7rem 1rem; border-radius:0.7rem; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:10; margin-top:0.3rem; white-space:normal; word-break:break-word; text-align:left;">We support government, education, and nonprofits in delivering better outcomes for citizens, students, and communities through innovation and efficiency.</span>
           <div style="display:flex; flex-direction:column; align-items:center; position:relative;">
@@ -987,6 +922,11 @@
             <script>document.currentScript.parentElement.onmouseover=function(){this.querySelector('.insight-hover-desc').style.display='block'};document.currentScript.parentElement.onmouseout=function(){this.querySelector('.insight-hover-desc').style.display='none'};</script>
           </div>
         </article>
+        <style>
+          .industry-card h3 {
+            color: #004c97 !important;
+          }
+        </style>
       </div>
       <div style="flex:1; min-width:280px; max-width:400px;">
         <article class="card" style="height:100%; margin-bottom:1.2rem;">
@@ -1094,8 +1034,8 @@
     </p>
     <div class="card-grid">
       <article class="card industry-card">
-        <span>Financial services</span>
-        <h3>Banking, payments, and capital markets</h3>
+        <span style="color:#004c97 !important;">Financial services</span>
+        <div class="industry-tile-subtitle">Banking, payments, and capital markets</div>
         <p>
           From core banking modernization to third‑party risk and AML/KYC remediation,
           we help institutions navigate change at scale.
@@ -1103,8 +1043,8 @@
         <div class="industry-hover-desc">We provide tailored solutions for financial institutions to manage regulatory change and drive sustainable growth.</div>
       </article>
       <article class="card industry-card">
-        <span>Healthcare</span>
-        <h3>Payers, providers, and services</h3>
+        <span style="color:#004c97 !important;">Healthcare</span>
+        <div class="industry-tile-subtitle">Payers, providers, and services</div>
         <p>
           Improve access, experience, and economics by rethinking care models,
           digital front doors, and analytics foundations.
@@ -1112,18 +1052,20 @@
         <div class="industry-hover-desc">Our healthcare strategies focus on patient outcomes, operational efficiency, and digital transformation for providers.</div>
       </article>
       <article class="card industry-card">
-        <span>Public & social sector</span>
-        <h3>Government, education, and nonprofits</h3>
+        <span style="color:#004c97 !important;">Public & social sector</span>
+        <div class="industry-tile-subtitle">Government, education, and nonprofits</div>
         <p>
           Support agencies and institutions in delivering better outcomes for citizens,
           students, and communities.
         </p>
         <div class="industry-hover-desc">We help public sector organizations innovate, improve service delivery, and achieve measurable community impact.</div>
       </article>
-    </div>
-  </section>
-
-  <section id="case-studies" style="margin-top:3.5rem;">
+    <style>
+      .industry-card > span[style*="Financial services"],
+      .industry-card > span[style*="Healthcare"],
+      .industry-card > span[style*="Public & social sector"] {
+        color: #004c97 !important;
+      }
     <div class="section-label" style="color:#004c97; font-weight:bold;">Case Studies</div>
     <div class="section-title">Real-world impact in action.</div>
     <p class="section-lead">
@@ -1361,7 +1303,7 @@
 <script>
   (function(){
     const listEl = document.getElementById('insights-list');
-    const fallbackEl = document.getElementById('insights-fallback');
+       const fallbackEl = document.getElementById('insights-fallback');
     if (listEl) {
       fetch('insights.json', { cache: 'no-store' })
         .then(r => {
@@ -1575,21 +1517,6 @@ if __name__ == '__main__':
 // Pill hover/tap/focus popup for Client Impact Snapshot
 (function(){
   var pills = document.querySelectorAll('.pill');
-// Show hamburger only on mobile
-function wjMobileNavCheck() {
-  var btn = document.querySelector('.wj-mobile-nav-btn');
-  if (!btn) return;
-  if (window.innerWidth <= 800) {
-    if (!document.querySelector('.wj-mobile-nav').classList.contains('open')) {
-      btn.style.display = 'flex';
-    }
-  } else {
-    btn.style.display = 'none';
-    document.querySelector('.wj-mobile-nav').classList.remove('open');
-  }
-}
-window.addEventListener('resize', wjMobileNavCheck);
-window.addEventListener('DOMContentLoaded', wjMobileNavCheck);
   var menus = document.querySelectorAll('.pill-menu');
   function hideAllMenus() {
     menus.forEach(function(menu) {
