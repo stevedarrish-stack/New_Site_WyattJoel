@@ -815,6 +815,40 @@
     <div class="brand">
       <div class="brand-mark">WJ</div>
       WyattJoel Advisory Partners
+      <!-- Mobile horizontal menu bar -->
+      <div class="mobile-menu-bar">
+        <a href="#services">Services</a>
+        <a href="#insights">Insights</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+      </div>
+    @media (max-width: 800px) {
+      .mobile-menu-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+        width: 100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        gap: 0.2rem;
+      }
+      .mobile-menu-bar a {
+        font-size: 0.68rem;
+        color: #004c97;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0.15rem 0.3rem;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+    }
+    @media (min-width: 801px) {
+      .mobile-menu-bar { display: none !important; }
+    }
     </div>
     <nav class="main-nav">
       <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
