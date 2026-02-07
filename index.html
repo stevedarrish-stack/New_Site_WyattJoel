@@ -815,6 +815,23 @@
     <div class="brand">
       <div class="brand-mark">WJ</div>
       WyattJoel Advisory Partners
+      <!-- Mobile Hamburger Menu -->
+      <div id="mobile-hamburger-menu" style="display:none; width:100%; margin-top:0.5rem;">
+        <button id="hamburger-btn" style="background:none; border:none; padding:0.4rem 0.7rem; font-size:2rem; color:#004c97; cursor:pointer;">
+          &#9776;
+        </button>
+        <div id="hamburger-dropdown" style="display:none; position:absolute; left:0; top:3.2rem; width:100vw; background:#fff; box-shadow:0 4px 16px rgba(15,23,42,0.10); z-index:1000;">
+          <a href="#services" style="display:block; padding:1rem; color:#004c97; font-weight:bold; text-decoration:none;">Services</a>
+          <a href="#insights" style="display:block; padding:1rem; color:#004c97; font-weight:bold; text-decoration:none;">Insights</a>
+          <a href="#industries" style="display:block; padding:1rem; color:#004c97; font-weight:bold; text-decoration:none;">Industries</a>
+          <a href="#contact" style="display:block; padding:1rem; color:#004c97; font-weight:bold; text-decoration:none;">Contact</a>
+        </div>
+      </div>
+    @media (max-width: 800px) {
+      #mobile-hamburger-menu { display: block !important; }
+      #hamburger-btn { display: block !important; }
+      #hamburger-dropdown { display: none; }
+    }
     </div>
     <nav class="main-nav">
       <a href="#services" style="color:#004c97; font-weight:bold;">Services</a>
@@ -1281,6 +1298,21 @@
 </main>
 
 <script>
+  (function(){
+    var btn = document.getElementById('hamburger-btn');
+    var dropdown = document.getElementById('hamburger-dropdown');
+    if (btn && dropdown) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target) && e.target !== btn) {
+          dropdown.style.display = 'none';
+        }
+      });
+    }
+  })();
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
