@@ -5,70 +5,6 @@
   <title>WyAttJoel Advisory Partners</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    /* Strictly mobile-only hamburger menu and nav */
-    @media (max-width: 800px) {
-      .wj-mobile-nav-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        position: absolute;
-        top: 0.5rem;
-        right: 1rem;
-        z-index: 2001;
-      }
-      .wj-mobile-nav-btn span {
-        display: block;
-        height: 4px;
-        width: 28px;
-        margin: 4px 0;
-        background: #004c97;
-        border-radius: 2px;
-        transition: 0.3s;
-      }
-      .wj-mobile-nav {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #fff;
-        z-index: 2000;
-        box-shadow: 0 4px 16px rgba(15,23,42,0.10);
-        padding: 2.5rem 1.5rem 1.5rem 1.5rem;
-      }
-      .wj-mobile-nav.open {
-        display: flex;
-      }
-      .wj-mobile-nav a {
-        color: #004c97;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-bottom: 1.2rem;
-        text-decoration: none;
-      }
-      .wj-mobile-nav a:last-child {
-        margin-bottom: 0;
-      }
-      .wj-mobile-nav-close {
-        align-self: flex-end;
-        font-size: 2.2rem;
-        background: none;
-        border: none;
-        color: #004c97;
-        cursor: pointer;
-        margin-bottom: 1.5rem;
-      }
-      .nav-inner .main-nav {
-        display: none !important;
-      }
-    }
                                           @media (max-width: 800px) {
                                             .client-impact-card {
                                               padding: 0.7rem 0.4rem !important;
@@ -886,20 +822,6 @@
       <a href="#industries" style="color:#004c97; font-weight:bold;">Industries</a>
       <a href="#contact" style="color:#004c97; font-weight:bold;">Contact</a>
     </nav>
-    <!-- Mobile hamburger button (mobile only) -->
-    <button class="wj-mobile-nav-btn" aria-label="Open navigation" onclick="document.querySelector('.wj-mobile-nav').classList.add('open');this.style.display='none';" style="display:none;">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <!-- Mobile nav (mobile only) -->
-    <nav class="wj-mobile-nav" aria-label="Mobile navigation">
-      <button class="wj-mobile-nav-close" aria-label="Close navigation" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">&times;</button>
-      <a href="#services" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Services</a>
-      <a href="#insights" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Insights</a>
-      <a href="#industries" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Industries</a>
-      <a href="#contact" onclick="document.querySelector('.wj-mobile-nav').classList.remove('open');document.querySelector('.wj-mobile-nav-btn').style.display='flex';">Contact</a>
-    </nav>
   </div>
 </header>
 
@@ -1575,21 +1497,6 @@ if __name__ == '__main__':
 // Pill hover/tap/focus popup for Client Impact Snapshot
 (function(){
   var pills = document.querySelectorAll('.pill');
-// Show hamburger only on mobile
-function wjMobileNavCheck() {
-  var btn = document.querySelector('.wj-mobile-nav-btn');
-  if (!btn) return;
-  if (window.innerWidth <= 800) {
-    if (!document.querySelector('.wj-mobile-nav').classList.contains('open')) {
-      btn.style.display = 'flex';
-    }
-  } else {
-    btn.style.display = 'none';
-    document.querySelector('.wj-mobile-nav').classList.remove('open');
-  }
-}
-window.addEventListener('resize', wjMobileNavCheck);
-window.addEventListener('DOMContentLoaded', wjMobileNavCheck);
   var menus = document.querySelectorAll('.pill-menu');
   function hideAllMenus() {
     menus.forEach(function(menu) {
