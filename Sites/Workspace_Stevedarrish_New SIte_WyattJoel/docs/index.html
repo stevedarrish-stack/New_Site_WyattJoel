@@ -261,14 +261,39 @@ ul {
     });
   </script>
   <script>
-document.currentScript.parentElement.onmouseover = function() {
-  var el = this.querySelector('.insight-hover-desc');
-  if (el) el.style.display = 'block';
-};
-document.currentScript.parentElement.onmouseout = function() {
-  var el = this.querySelector('.insight-hover-desc');
-  if (el) el.style.display = 'none';
-};
-</script>
+    (function() {
+      var parent = document.currentScript && document.currentScript.parentElement;
+      if (!parent) {
+        console.warn('insight-hover-desc script: parentElement not found');
+        return;
+      }
+      parent.onmouseover = function() {
+        if (!this || !this.querySelector) {
+          console.warn('insight-hover-desc script: this is not an element');
+          return;
+        }
+        var el = this.querySelector('.insight-hover-desc');
+        if (el) {
+          el.style.display = 'block';
+        } else {
+          // For debugging
+          // console.warn('insight-hover-desc not found on mouseover');
+        }
+      };
+      parent.onmouseout = function() {
+        if (!this || !this.querySelector) {
+          console.warn('insight-hover-desc script: this is not an element');
+          return;
+        }
+        var el = this.querySelector('.insight-hover-desc');
+        if (el) {
+          el.style.display = 'none';
+        } else {
+          // For debugging
+          // console.warn('insight-hover-desc not found on mouseout');
+        }
+      };
+    })();
+  </script>
 </body>
 </html>

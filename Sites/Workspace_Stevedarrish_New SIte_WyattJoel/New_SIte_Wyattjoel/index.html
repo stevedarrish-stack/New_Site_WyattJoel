@@ -19,23 +19,22 @@
               text-align: center !important;
               margin: 0 0.15rem !important;
               box-sizing: border-box !important;
+            try {
+              const res = await fetch('https://new-site-wyattjoel-2.onrender.com/inquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
+              if (res.ok) {
+                alert('Thank you! We received your inquiry.');
+                contactForm.reset();
+              } else {
+                const errorText = await res.text();
+                alert('Inquiry form error: ' + res.status + ' ' + res.statusText + '\n' + (errorText || '[No error details returned]') + '\nURL: ' + res.url + '\nHeaders: ' + JSON.stringify([...res.headers]));
+              }
+            } catch (err) {
+              alert('Inquiry form fetch exception: ' + (err && err.message ? err.message : err));
             }
-          }
-          .client-impact-card {
-            background: #0a1833;
-            color: #f9fafb;
-            border-radius: 1.2rem;
-            padding: 1.7rem 1.5rem;
-            box-shadow: none;
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-          }
-          .client-impact-card h2 {
-            font-size: 1.15rem;
-            margin-bottom: 0.7rem;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: #b6c6e3;
           }
           .impact-stats {
             display: flex;
@@ -261,14 +260,40 @@ ul {
     });
   </script>
   <script>
-document.currentScript.parentElement.onmouseover = function() {
-  var el = this.querySelector('.insight-hover-desc');
-  if (el) el.style.display = 'block';
-};
-document.currentScript.parentElement.onmouseout = function() {
-  var el = this.querySelector('.insight-hover-desc');
-  if (el) el.style.display = 'none';
-};
-</script>
+    (function() {
+      var parent = document.currentScript && document.currentScript.parentElement;
+      if (!parent) {
+        console.warn('insight-hover-desc script: parentElement not found');
+        return;
+      }
+      parent.onmouseover = function() {
+        if (!this || !this.querySelector) {
+          console.warn('insight-hover-desc script: this is not an element');
+          return;
+        }
+        var el = this.querySelector('.insight-hover-desc');
+        if (el) {
+          el.style.display = 'block';
+        } else {
+          // For debugging
+          // console.warn('insight-hover-desc not found on mouseover');
+        }
+      };
+      parent.onmouseout = function() {
+        if (!this || !this.querySelector) {
+          console.warn('insight-hover-desc script: this is not an element');
+          return;
+        }
+        var el = this.querySelector('.insight-hover-desc');
+        if (el) {
+          el.style.display = 'none';
+        } else {
+          // For debugging
+          // console.warn('insight-hover-desc not found on mouseout');
+        }
+      };
+    })();
+  </script>
 </body>
 </html>
+
