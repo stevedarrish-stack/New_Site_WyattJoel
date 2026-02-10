@@ -1,0 +1,29 @@
+name: Auto Deploy index.html to docs/
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Copy index.html to docs/
+        run: |
+          cp New_SIte_Wyattjoel/index.html docs/index.html
+      - name: Commit and push if changed
+        run: |
+          git add docs/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto: update docs/index.html from main index.html [skip ci]"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          else
+            echo "No changes to commit."
+          fi
