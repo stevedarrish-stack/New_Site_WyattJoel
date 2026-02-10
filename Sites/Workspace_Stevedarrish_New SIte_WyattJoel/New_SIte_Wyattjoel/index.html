@@ -3,6 +3,84 @@
  <head>
  <meta charset="UTF-8" />
   <title>WyAttJoel Advisory Partners</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+          @media (max-width: 600px) {
+            .pill-row .pill {
+              min-width: 80px !important;
+              max-width: 80px !important;
+              width: 80px !important;
+              height: 32px !important;
+              display: inline-flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              font-size: 0.95rem !important;
+              white-space: normal !important;
+              text-align: center !important;
+              margin: 0 0.15rem !important;
+              box-sizing: border-box !important;
+            }
+          }
+          .client-impact-card {
+            background: #0a1833;
+            color: #f9fafb;
+            border-radius: 1.2rem;
+            padding: 1.7rem 1.5rem;
+            box-shadow: none;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+          }
+          .client-impact-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #b6c6e3;
+          }
+          .impact-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+          }
+          .impact-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+            color: #e0eaff;
+          }
+          .impact-label {
+            font-size: 1rem;
+            color: #b6c6e3;
+            display: block;
+            margin-top: 0.2rem;
+          }
+          .impact-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.1rem;
+          }
+          .impact-btn {
+            background: #17305c;
+            color: #f9fafb;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+          }
+          .impact-btn:hover, .impact-btn:focus {
+            background: #25447a;
+          }
+          .client-impact-card p {
+            font-size: 1rem;
+            margin: 0.5rem 0 0 0;
+            color: #e0eaff;
+          }
+    </style>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
 body {
@@ -15,7 +93,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  font-weight: normal;
+  font-weight: bold;
   color: inherit;
 }
 p {
@@ -65,132 +143,32 @@ ul {
   color: #17305c;
   font-size: 1.2rem;
 }
-.header {
-  background: #fff;
-  padding: 1rem 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-links a {
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background: #004c97;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-.nav-links a:hover::after {
-  transform: scaleX(1);
-}
-.cta-button {
-  background: #004c97;
-  color: #fff;
-  padding: 0.7rem 1.5rem;
-  border-radius: 0.5rem;
-  transition: background 0.3s ease;
-}
-.cta-button:hover {
-  background: #003366;
-}
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 4rem 0;
-  color: #fff;
-}
-.hero-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.hero-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-.features-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-.feature-card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-.feature-card:hover {
-  transform: translateY(-5px);
-}
-.testimonials-section {
-  background: #f8fafc;
-  padding: 2rem 0;
-  text-align: center;
-}
-.testimonial-card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.team-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-.team-member {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-.industry-label {
-  font-weight: normal;
-  color: #004c97;
-  font-size: 1.2rem;
-}
-.perspectives-article {
-  font-size: 1.2rem;
-}
-.article-title, .brief-title, .point-of-view-title {
-  font-size: 1.2rem;
-  font-weight: normal;
-}
-@media (max-width: 800px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .hero-title {
-    font-size: 2rem;
-  }
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  .feature-card, .team-member {
-    padding: 1rem;
-  }
-  .cta-button {
-    padding: 0.5rem 1rem;
-  }
-}
+      </div>
+    </div>
+    <div class="client-impact-card">
+      <h2>Client Impact Snapshot</h2>
+      <div class="impact-stats pill-row">
+        <div class="pill">
+          <span class="impact-number">120</span>
+          <span class="impact-label">Clients Served</span>
+        </div>
+        <div class="pill">
+          <span class="impact-number">98%</span>
+          <span class="impact-label">Satisfaction</span>
+        </div>
+        <div class="pill">
+          <span class="impact-number">5</span>
+          <span class="impact-label">Years Running</span>
+        </div>
+      </div>
+      <div class="impact-actions">
+        <button class="impact-btn" title="See a summary of all client impact metrics and highlights for last year.">Summary</button>
+        <button class="impact-btn" title="Download a detailed report with charts, analysis, and year-over-year comparisons.">Download Report</button>
+        <button class="impact-btn" title="Contact our team for more information about client impact and future opportunities.">Contact Us</button>
+      </div>
+      <p><strong>WyattJoel</strong> continues to make a difference in the community.</p>
+    </div>
+    <!-- Fixed: Move misplaced CSS rules back into the <style> block above -->
   </style>
 </head>
 <body>
@@ -232,16 +210,16 @@ ul {
     </section>
     <section class="features-section" id="services">
       <div class="feature-card">
-        <h3>Consulting</h3>
-        <p>Expert advice to help you build strategies for sustainable growth.</p>
+        <h3>Consulting <span class="case-study-tag">Strategy</span></h3>
+        <p style="color:#000;font-weight:bold;">Expert advice to help you build strategies for sustainable growth.</p>
       </div>
       <div class="feature-card">
-        <h3>Technology Solutions</h3>
-        <p>Innovative tech solutions to streamline your operations.</p>
+        <h3>Technology Solutions <span class="case-study-tag">Tech</span></h3>
+        <p style="color:#000;font-weight:bold;">Innovative tech solutions to streamline your operations.</p>
       </div>
       <div class="feature-card">
-        <h3>Data Analytics</h3>
-        <p>Actionable insights derived from data to drive your business forward.</p>
+        <h3>Data Analytics <span class="case-study-tag">Analytics</span></h3>
+        <p style="color:#000;font-weight:bold;">Actionable insights derived from data to drive your business forward.</p>
       </div>
     </section>
     <section class="testimonials-section">
