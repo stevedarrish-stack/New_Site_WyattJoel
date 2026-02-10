@@ -260,5 +260,15 @@ ul {
       document.querySelector('.mobile-nav').classList.toggle('open');
     });
   </script>
+  <script>
+document.currentScript.parentElement.onmouseover = function() {
+  var el = this.querySelector('.insight-hover-desc');
+  if (el) el.style.display = 'block';
+};
+document.currentScript.parentElement.onmouseout = function() {
+  var el = this.querySelector('.insight-hover-desc');
+  if (el) el.style.display = 'none';
+};
+</script>
 </body>
 </html>
