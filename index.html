@@ -414,6 +414,34 @@
       padding: 0.75rem 0;
       border-bottom: 1px solid #e5e7eb;
     }
+    .insight-hover-target {
+      position: relative;
+      cursor: help;
+    }
+    .insight-hover-target::after {
+      content: attr(data-hover-note);
+      position: absolute;
+      top: calc(100% + 0.4rem);
+      left: 0;
+      max-width: 28rem;
+      background: #17305c;
+      color: #f9fafb;
+      border-radius: 0.65rem;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      box-shadow: 0 12px 24px rgba(15,23,42,0.2);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+      z-index: 20;
+    }
+    .insight-hover-target:hover::after,
+    .insight-hover-target:focus-within::after {
+      opacity: 1;
+      visibility: visible;
+    }
     .insight-item:last-child {
       border-bottom: none;
     }
@@ -623,17 +651,17 @@
       <div>
         <div id="insights-list"></div>
         <div id="insights-fallback">
-          <div class="insight-item">
+          <div class="insight-item insight-hover-target" data-hover-note="Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.">
             <div class="insight-tag">Article · Operating model</div>
             <h4>Five moves to realign your operating model for digital scale</h4>
             <p>How leaders are shifting structures, incentives, and talent to unlock digital value.</p>
           </div>
-          <div class="insight-item">
+          <div class="insight-item insight-hover-target" data-hover-note="Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.">
             <div class="insight-tag">Brief · Financial services</div>
             <h4>Rebuilding trust through transparent risk and control frameworks</h4>
             <p>Why risk, compliance, and transformation leaders need a shared playbook.</p>
           </div>
-          <div class="insight-item">
+          <div class="insight-item insight-hover-target" data-hover-note="Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.">
             <div class="insight-tag">Point of view · AI</div>
             <h4>Moving from AI pilots to industrialized impact in 12 months</h4>
             <p>Design principles for scaling AI responsibly across critical workflows.</p>
@@ -932,9 +960,19 @@
       .then(items => {
         if (!Array.isArray(items) || items.length === 0) return;
         const frag = document.createDocumentFragment();
-        items.forEach(item => {
+        items.forEach((item, idx) => {
           const wrap = document.createElement('div');
           wrap.className = 'insight-item';
+          if (idx === 0) {
+            wrap.classList.add('insight-hover-target');
+            wrap.setAttribute('data-hover-note', 'Discover actionable steps to help your organization adapt to digital transformation and stay ahead of industry changes.');
+          } else if (idx === 1) {
+            wrap.classList.add('insight-hover-target');
+            wrap.setAttribute('data-hover-note', 'Learn how transparency and collobration can strengthen your risk management and foster long-term client trust.');
+          } else if (idx === 2) {
+            wrap.classList.add('insight-hover-target');
+            wrap.setAttribute('data-hover-note', 'Explore proven methods for scaling AI iniatives and acheiveing measureable business outcomes quickly and responsibilty.');
+          }
           const tag = document.createElement('div');
           tag.className = 'insight-tag';
           tag.textContent = `${item.type || 'Article'} · ${item.category || 'General'}`;
