@@ -216,53 +216,37 @@
       display: block;
       margin-top: 0.2rem;
     }
-    .impact-actions {
+    .sector-pills {
       display: flex;
       gap: 1rem;
       margin-bottom: 1.1rem;
       flex-wrap: wrap;
     }
-    .impact-btn {
+    .sector-pill {
       background: #17305c;
       color: #f9fafb;
-      border: none;
-      border-radius: 0.7rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
+      border: 1px solid rgba(182,198,227,0.7);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.86rem;
       font-weight: 500;
       cursor: pointer;
       transition: background 0.15s;
       white-space: nowrap;
     }
-    .impact-btn:hover,
-    .impact-btn:focus {
+    .sector-pill:hover,
+    .sector-pill:focus {
       background: #25447a;
     }
-    .impact-tooltip {
-      position: relative;
-    }
-    .impact-tooltip::after {
-      content: attr(data-tooltip);
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #25447a;
-      color: #fff;
-      padding: 0.4em 0.7em;
-      border-radius: 0.5em;
-      font-size: 0.95em;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-      z-index: 10;
-      pointer-events: none;
-    }
-    .impact-tooltip:hover::after,
-    .impact-tooltip:focus::after {
-      visibility: visible;
-      opacity: 1;
+    .sector-description {
+      border: 1px solid rgba(182,198,227,0.35);
+      border-radius: 0.7rem;
+      background: rgba(37,68,122,0.55);
+      color: #e0eaff;
+      font-size: 0.93rem;
+      line-height: 1.4;
+      padding: 0.65rem 0.75rem;
+      min-height: 2.3rem;
     }
     .client-impact-card p {
       font-size: 1rem;
@@ -459,11 +443,13 @@
           <span class="impact-label">Programs Led</span>
         </div>
       </div>
-      <div class="impact-actions">
-        <button class="impact-btn impact-tooltip" data-tooltip="Total dollar value delivered to clients through transformation and advisory projects.">Value delivered to clients through all projects</button>
-        <button class="impact-btn impact-tooltip" data-tooltip="Average efficiency improvement range achieved for clients via process redesign and automation.">Typical efficiency improvement range for clients</button>
-        <button class="impact-btn impact-tooltip" data-tooltip="Number of transformation and advisory programs successfully led by our team.">Total programs led by WyattJoel</button>
+      <div class="sector-pills" id="sector-pills">
+        <button type="button" class="sector-pill" data-sector-desc="Banking, payments, and capital markets transformation with modernization, controls, and growth execution.">Financial Services</button>
+        <button type="button" class="sector-pill" data-sector-desc="Payers, providers, and health services performance improvement using digital delivery and analytics.">Healthcare</button>
+        <button type="button" class="sector-pill" data-sector-desc="Government and nonprofit operating model improvement focused on citizen and community outcomes.">Public Sector</button>
+        <button type="button" class="sector-pill" data-sector-desc="Technology product, platform, and AI scale-up support to improve speed, quality, and market responsiveness.">Technology</button>
       </div>
+      <div class="sector-description" id="sector-description">Hover over a sector to view details.</div>
       <p style="color:#ffffff; font-weight: 600;"><strong>WyattJoel</strong> continues to make a difference in the community.</p>
     </div>
   </section>
@@ -811,6 +797,28 @@
 </main>
 
 <script>
+  (function(){
+    const pills = document.querySelectorAll('#sector-pills .sector-pill');
+    const description = document.getElementById('sector-description');
+    if (!pills.length || !description) return;
+
+    const defaultText = description.textContent;
+
+    pills.forEach(pill => {
+      const update = () => {
+        description.textContent = pill.getAttribute('data-sector-desc') || defaultText;
+      };
+      const reset = () => {
+        description.textContent = defaultText;
+      };
+
+      pill.addEventListener('mouseenter', update);
+      pill.addEventListener('focus', update);
+      pill.addEventListener('mouseleave', reset);
+      pill.addEventListener('blur', reset);
+    });
+  })();
+
   (function(){
     const listEl = document.getElementById('insights-list');
     const fallbackEl = document.getElementById('insights-fallback');
