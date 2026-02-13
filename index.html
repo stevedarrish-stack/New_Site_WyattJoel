@@ -488,8 +488,8 @@
       backdrop-filter: blur(1.5px);
       box-shadow: 0 8px 20px rgba(15,23,42,0.08);
       padding: 1rem;
-      max-height: 28rem;
-      overflow-y: auto;
+      max-height: 20rem;
+      overflow: hidden;
     }
     .offerings-scroll h4 {
       margin: 0 0 0.5rem;
@@ -512,6 +512,32 @@
     }
     .offerings-scroll li + li {
       margin-top: 0.45rem;
+    }
+    .offerings-viewport {
+      height: 11.5rem;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .offerings-track {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: offeringsScroll 30s linear infinite;
+      will-change: transform;
+    }
+    .offerings-scroll:hover .offerings-track,
+    .offerings-scroll:focus-within .offerings-track {
+      animation-play-state: paused;
+    }
+    @keyframes offeringsScroll {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-50%);
+      }
     }
     .insight-item {
       padding: 0.9rem 0;
@@ -636,7 +662,7 @@
         grid-template-columns: minmax(0, 1fr);
       }
       .offerings-scroll {
-        max-height: 20rem;
+        max-height: 18rem;
       }
     }
   </style>
@@ -1057,18 +1083,34 @@
       <aside class="offerings-scroll" aria-label="our offerings">
         <h4>Our Offerings</h4>
         <p>Flexible advisory support designed to meet your execution pace, capability goals, and transformation scope.</p>
-        <ul>
-          <li>Custom consulting initiatives aligned to enterprise priorities and outcomes.</li>
-          <li>Consulting packages: 500-hour, 1,000-hour, and 1,500-hour options.</li>
-          <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
-          <li>LSS and Lean gating and governance to support client CI initiatives.</li>
-          <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
-          <li>M&amp;A integration advisory for Day 1 readiness through value capture.</li>
-          <li>Process and product design for speed, quality, and customer fit.</li>
-          <li>Productivity improvement programs grounded in measurable impact.</li>
-          <li>Process design and end-to-end operating model optimization.</li>
-          <li>Business and digital transformation support from strategy through execution.</li>
-        </ul>
+        <div class="offerings-viewport">
+          <div class="offerings-track">
+            <ul>
+              <li>Custom consulting initiatives aligned to enterprise priorities and outcomes.</li>
+              <li>Consulting packages: 500-hour, 1,000-hour, and 1,500-hour options.</li>
+              <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
+              <li>LSS and Lean gating and governance to support client CI initiatives.</li>
+              <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
+              <li>M&amp;A integration advisory for Customer snad Legal Day 1 readiness through snyergies value capture.</li>
+              <li>Process and product design for speed, quality, and customer fit.</li>
+              <li>Productivity improvement programs grounded in measurable impact.</li>
+              <li>Process design and end-to-end operating model optimization.</li>
+              <li>Business and digital transformation support from strategy through execution.</li>
+            </ul>
+            <ul aria-hidden="true">
+              <li>Custom consulting initiatives aligned to enterprise priorities and outcomes.</li>
+              <li>Consulting packages: 500-hour, 1,000-hour, and 1,500-hour options.</li>
+              <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
+              <li>LSS and Lean gating and governance to support client CI initiatives.</li>
+              <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
+              <li>M&amp;A integration advisory for Customer snad Legal Day 1 readiness through snyergies value capture.</li>
+              <li>Process and product design for speed, quality, and customer fit.</li>
+              <li>Productivity improvement programs grounded in measurable impact.</li>
+              <li>Process design and end-to-end operating model optimization.</li>
+              <li>Business and digital transformation support from strategy through execution.</li>
+            </ul>
+          </div>
+        </div>
       </aside>
     </div>
   </section>
