@@ -513,10 +513,24 @@
     }
     .offerings-scroll ul {
       margin: 0;
-      padding-left: 1.1rem;
+      padding-left: 0;
+      list-style: none;
       color: #111827;
       font-size: 0.9rem;
       line-height: 1.45;
+    }
+    .offerings-scroll li {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+    .offerings-scroll li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      top: 0.02rem;
+      color: #0ea5e9;
+      font-size: 0.88rem;
+      line-height: 1;
     }
     .offerings-scroll li + li {
       margin-top: 0.45rem;
@@ -532,7 +546,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      animation: offeringsScroll 30s linear infinite;
+      animation: offeringsScroll 20s linear infinite;
       will-change: transform;
     }
     .offerings-scroll:hover .offerings-track,
