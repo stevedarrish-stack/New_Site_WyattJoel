@@ -285,6 +285,14 @@
       opacity: 0.8;
       mix-blend-mode: screen;
     }
+    .hero-video-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.72;
+      filter: saturate(1.06) contrast(1.03);
+    }
     .hero-video-overlay {
       position: absolute;
       inset: 0;
@@ -1083,9 +1091,7 @@
     </div>
     <div class="hero-right-stack">
       <div class="hero-video-card" aria-label="Strategy activity highlight">
-        <video autoplay muted loop playsinline poster="site-background.png">
-          <source src="consulting-loop.mp4" type="video/mp4" />
-        </video>
+        <img src="site-background.png" alt="Strategy activity visual" />
         <div class="hero-video-overlay"></div>
         <p class="hero-video-label">Consulting in Motion</p>
       </div>
