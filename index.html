@@ -178,6 +178,8 @@
     .transform-word {
       display: inline-block;
       white-space: nowrap;
+      opacity: 1;
+      transition: color 9s ease-in-out;
     }
     .transform-word .char {
       display: inline-block;
@@ -1153,12 +1155,23 @@
     const colorCycle = ['#004c97', '#0b5fb8', '#2563eb', '#0369a1', '#1d4ed8'];
 
     let fontIndex = 0;
+    const morphIntervalMs = 30000;
+    const fadeMs = 1200;
 
+    const morphWord = () => {
+      wordEl.style.opacity = '0.72';
+      setTimeout(() => {
+        wordEl.style.fontFamily = fontCycle[fontIndex];
+        wordEl.style.color = colorCycle[fontIndex];
+        wordEl.style.opacity = '1';
+        fontIndex = (fontIndex + 1) % fontCycle.length;
+      }, fadeMs);
+    };
+
+    morphWord();
     setInterval(() => {
-      wordEl.style.fontFamily = fontCycle[fontIndex];
-      wordEl.style.color = colorCycle[fontIndex];
-      fontIndex = (fontIndex + 1) % fontCycle.length;
-    }, 30000);
+      morphWord();
+    }, morphIntervalMs);
   })();
 
   (function(){
