@@ -19,7 +19,7 @@
       inset: 0;
       z-index: -2;
       background:
-        linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
+        linear-gradient(rgba(255,255,255,0.58), rgba(255,255,255,0.58)),
         url("site-background.png") center center / cover no-repeat;
       background-attachment: fixed;
       pointer-events: none;
@@ -365,11 +365,11 @@
     }
     .card {
       border-radius: 1.1rem;
-      border: 1px solid #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.45);
       padding: 1.3rem 1.35rem;
-      background: transparent;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.04);
-      backdrop-filter: none;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+      backdrop-filter: blur(1.5px);
     }
     .card.case-study {
       position: relative;
@@ -450,9 +450,10 @@
     .insights {
       margin-top: 3.75rem;
       border-radius: 1.35rem;
-      background: transparent;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.45);
       padding: 2rem 1.8rem;
-      backdrop-filter: none;
+      backdrop-filter: blur(1.5px);
     }
     .insights-grid {
       display: grid;
@@ -473,6 +474,44 @@
       margin-top: 0.6rem;
       object-fit: cover;
       display: block;
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 1.4rem;
+      align-items: start;
+    }
+    .offerings-scroll {
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(1.5px);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+      padding: 1rem;
+      max-height: 28rem;
+      overflow-y: auto;
+    }
+    .offerings-scroll h4 {
+      margin: 0 0 0.5rem;
+      color: #004c97;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .offerings-scroll p {
+      margin: 0 0 0.75rem;
+      color: #111827;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    .offerings-scroll ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #111827;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    .offerings-scroll li + li {
+      margin-top: 0.45rem;
     }
     .insight-item {
       padding: 0.9rem 0;
@@ -592,6 +631,12 @@
       }
       .insights-list-col {
         padding-top: 0;
+      }
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .offerings-scroll {
+        max-height: 20rem;
       }
     }
   </style>
@@ -980,34 +1025,52 @@
       Phone: 314-359-1367<br />
       Email: steve@wyattjoel.com
     </p>
-    <form method="POST" action="/inquiry" style="max-width:480px; border:1px solid #d1d5db; border-radius:1rem; padding:1.1rem 1rem; background:rgba(255,255,255,0.24); box-shadow:0 8px 20px rgba(15,23,42,0.06); backdrop-filter:blur(1px);">
-      <div style="margin-bottom:0.9rem;">
-        <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
-        <input id="name" name="name" type="text" required
-               style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-      </div>
-      <div style="margin-bottom:0.9rem;">
-        <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
-        <input id="email" name="email" type="email" required
-               style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
-      </div>
-      <div style="margin-bottom:0.9rem;">
-        <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
-        <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
-          <option>Enterprise transformation</option>
-          <option>Digital & AI</option>
-          <option>Risk, compliance, and controls</option>
-          <option>Cost and productivity</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
-        <textarea id="message" name="message" rows="4"
-                  style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit inquiry →</button>
-    </form>
+    <div class="contact-layout">
+      <form method="POST" action="/inquiry" style="max-width:480px; border:1px solid #d1d5db; border-radius:1rem; padding:1.1rem 1rem; background:rgba(255,255,255,0.24); box-shadow:0 8px 20px rgba(15,23,42,0.06); backdrop-filter:blur(1px);">
+        <div style="margin-bottom:0.9rem;">
+          <label for="name" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Name</label>
+          <input id="name" name="name" type="text" required
+                 style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
+        </div>
+        <div style="margin-bottom:0.9rem;">
+          <label for="email" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Work email</label>
+          <input id="email" name="email" type="email" required
+                 style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;" />
+        </div>
+        <div style="margin-bottom:0.9rem;">
+          <label for="topic" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Topic</label>
+          <select id="topic" name="topic" style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;">
+            <option>Enterprise transformation</option>
+            <option>Digital & AI</option>
+            <option>Risk, compliance, and controls</option>
+            <option>Cost and productivity</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="message" style="display:block;font-size:0.85rem;margin-bottom:0.25rem;">Context (optional)</label>
+          <textarea id="message" name="message" rows="4"
+                    style="width:100%;padding:0.55rem 0.7rem;border-radius:0.75rem;border:1px solid #d1d5db;font-size:0.9rem;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit inquiry →</button>
+      </form>
+      <aside class="offerings-scroll" aria-label="our offerings">
+        <h4>Our Offerings</h4>
+        <p>Flexible advisory support designed to meet your execution pace, capability goals, and transformation scope.</p>
+        <ul>
+          <li>Custom consulting initiatives aligned to enterprise priorities and outcomes.</li>
+          <li>Consulting packages: 500-hour, 1,000-hour, and 1,500-hour options.</li>
+          <li>1–2 year strategic retainer packages for sustained delivery and leadership continuity.</li>
+          <li>LSS and Lean gating and governance to support client CI initiatives.</li>
+          <li>GB, BB, MBB, and executive LSS mentorship pathways.</li>
+          <li>M&amp;A integration advisory for Day 1 readiness through value capture.</li>
+          <li>Process and product design for speed, quality, and customer fit.</li>
+          <li>Productivity improvement programs grounded in measurable impact.</li>
+          <li>Process design and end-to-end operating model optimization.</li>
+          <li>Business and digital transformation support from strategy through execution.</li>
+        </ul>
+      </aside>
+    </div>
   </section>
 </main>
 
