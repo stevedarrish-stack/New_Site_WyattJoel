@@ -917,18 +917,20 @@
         -webkit-overflow-scrolling: touch;
         white-space: nowrap;
         padding-bottom: 0.2rem;
+        justify-content: center;
       }
       .nav-actions > nav a {
         margin-left: 0;
-        margin-right: 1rem;
+        margin-right: 0.7rem;
         padding-bottom: 0.1rem;
         flex: 0 0 auto;
+        font-size: 0.82rem;
       }
       .nav-actions > nav a:last-child {
         margin-right: 0;
       }
       .theme-toggle {
-        align-self: flex-start;
+        display: none;
       }
       .progress-nav {
         top: 56px;
@@ -993,7 +995,7 @@
         display: block;
       }
       .hero-video-card {
-        min-height: 130px;
+        display: none;
       }
       #insights.insights {
         background: rgba(255,255,255,0.34);
@@ -1536,6 +1538,11 @@
   (function(){
     const toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
+    const isMobile = window.matchMedia('(max-width: 800px)').matches;
+    if (isMobile) {
+      document.body.classList.remove('theme-dark');
+      return;
+    }
 
     const storageKey = 'wj-accent-theme';
     const setTheme = (mode) => {
