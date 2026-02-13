@@ -352,6 +352,16 @@
       gap: 1.5rem;
       margin-top: 3.25rem;
     }
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .services-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -690,6 +700,20 @@
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
+      #case-studies .card-grid {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(84vw, 1fr);
+        gap: 1rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 0.55rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      #case-studies .card.case-study {
+        scroll-snap-align: start;
+      }
       .card,
       .insights,
       .offerings-scroll {
@@ -745,6 +769,13 @@
         color: #1d4ed8;
       }
     }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -791,15 +822,15 @@
       <h2>Client Impact Snapshot</h2>
       <div class="impact-stats">
         <div>
-          <span class="impact-number">$14.7 Billion</span>
+          <span class="impact-number" data-target="14.7" data-prefix="$" data-suffix=" Billion" data-decimals="1">$14.7 Billion</span>
           <span class="impact-label">Value Delivered</span>
         </div>
         <div>
-          <span class="impact-number">~34%</span>
+          <span class="impact-number" data-target="34" data-prefix="~" data-suffix="%" data-decimals="0">~34%</span>
           <span class="impact-label">Efficiency Gains</span>
         </div>
         <div>
-          <span class="impact-number">500+</span>
+          <span class="impact-number" data-target="500" data-prefix="" data-suffix="+" data-decimals="0">500+</span>
           <span class="impact-label">Programs Led</span>
         </div>
       </div>
@@ -1197,6 +1228,94 @@
 </main>
 
 <script>
+  (function(){
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const selector = '.hero > div, .client-impact-card, section[id], .card, .insight-item, .offerings-scroll';
+    const markAllVisible = () => {
+      document.querySelectorAll(selector).forEach((el) => el.classList.add('is-visible'));
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      markAllVisible();
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+
+    const register = () => {
+      const targets = document.querySelectorAll(selector);
+      if (!targets.length) return;
+      targets.forEach((el) => {
+        if (el.dataset.revealBound === '1') return;
+        el.dataset.revealBound = '1';
+        el.classList.add('reveal-on-scroll');
+        observer.observe(el);
+      });
+    };
+
+    register();
+    document.addEventListener('insights:updated', register);
+  })();
+
+  (function(){
+    const impactCard = document.querySelector('.client-impact-card');
+    const stats = document.querySelectorAll('.impact-number[data-target]');
+    if (!impactCard || !stats.length) return;
+
+    const animateCount = (el) => {
+      const target = Number(el.dataset.target || 0);
+      const decimals = Number(el.dataset.decimals || 0);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1600;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = target * eased;
+        const formatted = value.toLocaleString(undefined, {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals
+        });
+        el.textContent = `${prefix}${formatted}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const run = () => {
+      if (impactCard.dataset.counted === '1') return;
+      impactCard.dataset.counted = '1';
+      stats.forEach((el) => animateCount(el));
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      run();
+      return;
+    }
+
+    const counterObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        run();
+        obs.disconnect();
+      });
+    }, { threshold: 0.35 });
+
+    counterObserver.observe(impactCard);
+  })();
+
   (function(){
     const wordEl = document.getElementById('transform-word');
     if (!wordEl) return;
