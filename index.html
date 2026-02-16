@@ -707,54 +707,59 @@
       border: 1px solid var(--surface-border);
       background: var(--surface-glass);
       border-radius: 1.1rem;
-      padding: 1rem 0.95rem;
+      padding: 0.8rem 0.8rem 0.75rem;
       backdrop-filter: blur(1.5px);
       box-shadow: 0 8px 20px rgba(15,23,42,0.08);
     }
     .client-logo-title {
-      margin: 0 0 0.3rem;
-      font-size: 0.82rem;
+      margin: 0 0 0.2rem;
+      font-size: 0.76rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #475569;
       font-weight: 600;
     }
     .client-logo-note {
-      margin: 0 0 0.85rem;
+      margin: 0 0 0.55rem;
       color: #0f172a;
-      font-size: 0.88rem;
+      font-size: 0.8rem;
+    }
+    .client-logo-viewport {
+      max-height: 15.5rem;
+      overflow: auto;
+      padding-right: 0.15rem;
     }
     .client-logo-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.55rem;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.45rem;
     }
     .client-logo-tile {
       border: 1px solid rgba(148,163,184,0.45);
       background: rgba(255,255,255,0.55);
       color: #0f172a;
       border-radius: 0.65rem;
-      padding: 0.5rem 0.55rem 0.45rem;
+      padding: 0.4rem 0.42rem 0.35rem;
       text-align: center;
-      min-height: 4.35rem;
+      min-height: 3.45rem;
       display: grid;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.25rem;
     }
     .client-logo-img-wrap {
-      height: 1.9rem;
+      height: 1.4rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .client-logo-img {
-      max-height: 1.7rem;
+      max-height: 1.28rem;
       max-width: 100%;
       object-fit: contain;
       filter: contrast(1.03) saturate(1.02);
     }
     .client-logo-label {
-      font-size: 0.69rem;
+      font-size: 0.62rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       font-weight: 600;
@@ -976,7 +981,7 @@
         gap: 0.9rem;
       }
       .client-logo-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
     @media (max-width: 800px) {
@@ -1150,12 +1155,15 @@
       .client-logo-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+      .client-logo-viewport {
+        max-height: 13.5rem;
+      }
       .client-logo-tile {
-        min-height: 3.95rem;
-        padding: 0.45rem 0.45rem 0.4rem;
+        min-height: 3.25rem;
+        padding: 0.35rem 0.35rem 0.32rem;
       }
       .client-logo-label {
-        font-size: 0.64rem;
+        font-size: 0.58rem;
       }
       .client-logo-tile.no-image .client-logo-label {
         font-size: 0.7rem;
@@ -1716,6 +1724,7 @@
   <section class="client-logo-wall" aria-label="representative client experience">
     <h3 class="client-logo-title">Representative Client Experience</h3>
     <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
+    <div class="client-logo-viewport">
     <div class="client-logo-grid">
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/microsoft.com" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/dow.com" alt="Dow Chemical Brazil logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Dow Chemical Brazil</div></div>
@@ -1744,6 +1753,7 @@
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/wellsfargoadvisors.com" alt="Wells Fargo Advisors logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo Advisors</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/fultonbank.com" alt="Fulton Bank logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Fulton Bank</div></div>
       <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/bell-labs.com" alt="Bell Labs Paris logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bell Labs, Paris</div></div>
+    </div>
     </div>
   </section>
 </main>
