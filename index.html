@@ -32,7 +32,7 @@
       inset: 0;
       z-index: -2;
       background:
-        linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+        linear-gradient(rgba(255,255,255,0.58), rgba(255,255,255,0.58)),
         url("site-background.png") center center / cover no-repeat;
       background-attachment: fixed;
       pointer-events: none;
@@ -66,13 +66,13 @@
     }
     @keyframes backgroundToneShift {
       0% {
-        filter: saturate(1.02) brightness(1.02) contrast(1.06);
+        filter: saturate(0.95) brightness(1.04) contrast(1.04);
       }
       50% {
-        filter: saturate(1.05) brightness(1.03) contrast(1.08);
+        filter: saturate(0.28) brightness(1.26) contrast(0.92);
       }
       100% {
-        filter: saturate(1.08) brightness(1.04) contrast(1.1);
+        filter: saturate(0.92) brightness(1.05) contrast(1.05);
       }
     }
     @keyframes tintMorph {
