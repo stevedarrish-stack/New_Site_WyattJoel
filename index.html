@@ -32,7 +32,7 @@
       inset: 0;
       z-index: -2;
       background:
-        linear-gradient(rgba(231,243,255,0.52), rgba(231,243,255,0.52)),
+        linear-gradient(rgba(255,255,255,0.42), rgba(255,255,255,0.42)),
         url("site-background.png") center center / cover no-repeat;
       background-attachment: fixed;
       pointer-events: none;
@@ -44,10 +44,11 @@
       inset: 0;
       z-index: -1;
       background:
-        radial-gradient(circle at 18% 22%, rgba(59,130,246,0.12), transparent 44%),
-        radial-gradient(circle at 78% 18%, rgba(96,165,250,0.1), transparent 42%),
-        radial-gradient(circle at 68% 74%, rgba(125,211,252,0.09), transparent 47%),
-        radial-gradient(circle at 86% 66%, rgba(251,207,232,0.08), transparent 46%);
+        radial-gradient(circle at 18% 22%, rgba(37,99,235,0.16), transparent 44%),
+        radial-gradient(circle at 78% 18%, rgba(96,165,250,0.14), transparent 42%),
+        radial-gradient(circle at 68% 74%, rgba(125,211,252,0.12), transparent 47%),
+        radial-gradient(circle at 86% 66%, rgba(244,114,182,0.14), transparent 46%),
+        radial-gradient(circle at 74% 34%, rgba(251,113,133,0.12), transparent 44%);
       pointer-events: none;
       animation: subtleColorShift 38s ease-in-out infinite alternate, tintMorph 54s ease-in-out infinite alternate;
     }
@@ -79,24 +80,27 @@
     @keyframes tintMorph {
       0% {
         background:
-          radial-gradient(circle at 18% 22%, rgba(59,130,246,0.13), transparent 44%),
-          radial-gradient(circle at 78% 18%, rgba(96,165,250,0.1), transparent 42%),
-          radial-gradient(circle at 68% 74%, rgba(125,211,252,0.1), transparent 47%),
-          radial-gradient(circle at 86% 66%, rgba(251,207,232,0.06), transparent 46%);
+          radial-gradient(circle at 18% 22%, rgba(37,99,235,0.17), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(96,165,250,0.14), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(125,211,252,0.12), transparent 47%),
+          radial-gradient(circle at 86% 66%, rgba(244,114,182,0.14), transparent 46%),
+          radial-gradient(circle at 74% 34%, rgba(251,113,133,0.11), transparent 44%);
       }
       50% {
         background:
-          radial-gradient(circle at 18% 22%, rgba(191,219,254,0.1), transparent 44%),
-          radial-gradient(circle at 78% 18%, rgba(147,197,253,0.08), transparent 42%),
-          radial-gradient(circle at 68% 74%, rgba(186,230,253,0.08), transparent 47%),
-          radial-gradient(circle at 86% 66%, rgba(253,226,240,0.07), transparent 46%);
+          radial-gradient(circle at 18% 22%, rgba(255,255,255,0.16), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(255,255,255,0.13), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(255,255,255,0.12), transparent 47%),
+          radial-gradient(circle at 86% 66%, rgba(255,255,255,0.14), transparent 46%),
+          radial-gradient(circle at 74% 34%, rgba(255,255,255,0.12), transparent 44%);
       }
       100% {
         background:
-          radial-gradient(circle at 18% 22%, rgba(56,189,248,0.12), transparent 44%),
-          radial-gradient(circle at 78% 18%, rgba(59,130,246,0.1), transparent 42%),
-          radial-gradient(circle at 68% 74%, rgba(96,165,250,0.09), transparent 47%),
-          radial-gradient(circle at 86% 66%, rgba(244,114,182,0.09), transparent 46%);
+          radial-gradient(circle at 18% 22%, rgba(59,130,246,0.14), transparent 44%),
+          radial-gradient(circle at 78% 18%, rgba(96,165,250,0.12), transparent 42%),
+          radial-gradient(circle at 68% 74%, rgba(147,197,253,0.1), transparent 47%),
+          radial-gradient(circle at 86% 66%, rgba(244,114,182,0.18), transparent 46%),
+          radial-gradient(circle at 74% 34%, rgba(251,113,133,0.14), transparent 44%);
       }
     }
     header {
