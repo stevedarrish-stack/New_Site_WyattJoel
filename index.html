@@ -702,6 +702,46 @@
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
+    .client-logo-wall {
+      margin-top: 2.2rem;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-glass);
+      border-radius: 1.1rem;
+      padding: 1rem 0.95rem;
+      backdrop-filter: blur(1.5px);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+    }
+    .client-logo-title {
+      margin: 0 0 0.3rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #475569;
+      font-weight: 600;
+    }
+    .client-logo-note {
+      margin: 0 0 0.85rem;
+      color: #0f172a;
+      font-size: 0.88rem;
+    }
+    .client-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+    .client-logo-chip {
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(255,255,255,0.55);
+      color: #0f172a;
+      border-radius: 0.65rem;
+      padding: 0.45rem 0.55rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      line-height: 1.25;
+    }
     .insights-grid {
       display: grid;
       grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
@@ -911,6 +951,9 @@
       .impact-stats {
         gap: 0.9rem;
       }
+      .client-logo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
     @media (max-width: 800px) {
       html,
@@ -1060,7 +1103,8 @@
       .card,
       .offerings-scroll,
       .insights-grid > div,
-      .client-impact-card {
+      .client-impact-card,
+      .client-logo-wall {
         width: 100%;
       }
       .card {
@@ -1075,8 +1119,16 @@
       .insights,
       .offerings-scroll,
       .trust-strip,
-      .card {
+      .card,
+      .client-logo-wall {
         border-radius: 0.95rem;
+      }
+      .client-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .client-logo-chip {
+        font-size: 0.72rem;
+        padding: 0.42rem 0.45rem;
       }
       .trust-strip {
         max-width: calc(100vw - 2rem);
@@ -1334,6 +1386,39 @@
         <span class="trust-pill">Enterprise Transformation Delivery</span>
         <span class="trust-pill">Best-in-Class Design and Development Expertise</span>
       </div>
+    </div>
+  </section>
+  <section class="client-logo-wall" aria-label="representative client experience">
+    <h3 class="client-logo-title">Representative Client Experience</h3>
+    <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
+    <div class="client-logo-grid">
+      <span class="client-logo-chip">Microsoft</span>
+      <span class="client-logo-chip">Dow Chemical Brazil</span>
+      <span class="client-logo-chip">GE Healthcare</span>
+      <span class="client-logo-chip">GE Capital</span>
+      <span class="client-logo-chip">LG Industries, Korea</span>
+      <span class="client-logo-chip">CAT Worldwide</span>
+      <span class="client-logo-chip">Bank of America</span>
+      <span class="client-logo-chip">TD Bank US &amp; Canada</span>
+      <span class="client-logo-chip">JP Morgan Chase US &amp; Japan</span>
+      <span class="client-logo-chip">Citi</span>
+      <span class="client-logo-chip">Wells Fargo</span>
+      <span class="client-logo-chip">Brandywine</span>
+      <span class="client-logo-chip">Alacer</span>
+      <span class="client-logo-chip">PwC</span>
+      <span class="client-logo-chip">Deloitte</span>
+      <span class="client-logo-chip">TRW Europe</span>
+      <span class="client-logo-chip">Fiserv</span>
+      <span class="client-logo-chip">LTV Aerospace</span>
+      <span class="client-logo-chip">Boeing</span>
+      <span class="client-logo-chip">Coppers Industries</span>
+      <span class="client-logo-chip">MD Anderson Cancer Hospital</span>
+      <span class="client-logo-chip">Kettering</span>
+      <span class="client-logo-chip">Esselte</span>
+      <span class="client-logo-chip">Kroger</span>
+      <span class="client-logo-chip">Wells Fargo Advisors</span>
+      <span class="client-logo-chip">Fulton Bank</span>
+      <span class="client-logo-chip">Bell Labs, Paris</span>
     </div>
   </section>
 
