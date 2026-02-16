@@ -729,18 +729,42 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0.55rem;
     }
-    .client-logo-chip {
+    .client-logo-tile {
       border: 1px solid rgba(148,163,184,0.45);
       background: rgba(255,255,255,0.55);
       color: #0f172a;
       border-radius: 0.65rem;
-      padding: 0.45rem 0.55rem;
-      font-size: 0.76rem;
+      padding: 0.5rem 0.55rem 0.45rem;
+      text-align: center;
+      min-height: 4.35rem;
+      display: grid;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .client-logo-img-wrap {
+      height: 1.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .client-logo-img {
+      max-height: 1.7rem;
+      max-width: 100%;
+      object-fit: contain;
+      filter: contrast(1.03) saturate(1.02);
+    }
+    .client-logo-label {
+      font-size: 0.69rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      text-align: center;
       font-weight: 600;
       line-height: 1.25;
+    }
+    .client-logo-tile.no-image .client-logo-img-wrap {
+      display: none;
+    }
+    .client-logo-tile.no-image .client-logo-label {
+      font-size: 0.76rem;
     }
     .insights-grid {
       display: grid;
@@ -1126,9 +1150,15 @@
       .client-logo-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-      .client-logo-chip {
-        font-size: 0.72rem;
-        padding: 0.42rem 0.45rem;
+      .client-logo-tile {
+        min-height: 3.95rem;
+        padding: 0.45rem 0.45rem 0.4rem;
+      }
+      .client-logo-label {
+        font-size: 0.64rem;
+      }
+      .client-logo-tile.no-image .client-logo-label {
+        font-size: 0.7rem;
       }
       .trust-strip {
         max-width: calc(100vw - 2rem);
@@ -1392,33 +1422,33 @@
     <h3 class="client-logo-title">Representative Client Experience</h3>
     <p class="client-logo-note">Selected organizations where our team has delivered advisory and transformation outcomes.</p>
     <div class="client-logo-grid">
-      <span class="client-logo-chip">Microsoft</span>
-      <span class="client-logo-chip">Dow Chemical Brazil</span>
-      <span class="client-logo-chip">GE Healthcare</span>
-      <span class="client-logo-chip">GE Capital</span>
-      <span class="client-logo-chip">LG Industries, Korea</span>
-      <span class="client-logo-chip">CAT Worldwide</span>
-      <span class="client-logo-chip">Bank of America</span>
-      <span class="client-logo-chip">TD Bank US &amp; Canada</span>
-      <span class="client-logo-chip">JP Morgan Chase US &amp; Japan</span>
-      <span class="client-logo-chip">Citi</span>
-      <span class="client-logo-chip">Wells Fargo</span>
-      <span class="client-logo-chip">Brandywine</span>
-      <span class="client-logo-chip">Alacer</span>
-      <span class="client-logo-chip">PwC</span>
-      <span class="client-logo-chip">Deloitte</span>
-      <span class="client-logo-chip">TRW Europe</span>
-      <span class="client-logo-chip">Fiserv</span>
-      <span class="client-logo-chip">LTV Aerospace</span>
-      <span class="client-logo-chip">Boeing</span>
-      <span class="client-logo-chip">Coppers Industries</span>
-      <span class="client-logo-chip">MD Anderson Cancer Hospital</span>
-      <span class="client-logo-chip">Kettering</span>
-      <span class="client-logo-chip">Esselte</span>
-      <span class="client-logo-chip">Kroger</span>
-      <span class="client-logo-chip">Wells Fargo Advisors</span>
-      <span class="client-logo-chip">Fulton Bank</span>
-      <span class="client-logo-chip">Bell Labs, Paris</span>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/microsoft.com" alt="Microsoft logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Microsoft</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/dow.com" alt="Dow Chemical Brazil logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Dow Chemical Brazil</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/gehealthcare.com" alt="GE Healthcare logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Healthcare</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/gecapital.com" alt="GE Capital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">GE Capital</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/lg.com" alt="LG Industries Korea logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">LG Industries, Korea</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/cat.com" alt="CAT Worldwide logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">CAT Worldwide</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/bankofamerica.com" alt="Bank of America logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bank of America</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/td.com" alt="TD Bank US and Canada logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TD Bank US &amp; Canada</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/jpmorganchase.com" alt="JP Morgan Chase US and Japan logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">JP Morgan Chase US &amp; Japan</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/citi.com" alt="Citi logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Citi</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/wellsfargo.com" alt="Wells Fargo logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/brandywineglobal.com" alt="Brandywine logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Brandywine</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/alacergold.com" alt="Alacer logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Alacer</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/pwc.com" alt="PwC logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">PwC</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/deloitte.com" alt="Deloitte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Deloitte</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/trw.com" alt="TRW Europe logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">TRW Europe</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/fiserv.com" alt="Fiserv logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Fiserv</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/ltvaerospace.com" alt="LTV Aerospace logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">LTV Aerospace</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/boeing.com" alt="Boeing logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Boeing</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/coppers.com" alt="Coppers Industries logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Coppers Industries</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/mdanderson.org" alt="MD Anderson Cancer Hospital logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">MD Anderson Cancer Hospital</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/ketteringhealth.org" alt="Kettering logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Kettering</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/esselte.com" alt="Esselte logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Esselte</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/kroger.com" alt="Kroger logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Kroger</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/wellsfargoadvisors.com" alt="Wells Fargo Advisors logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Wells Fargo Advisors</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/fultonbank.com" alt="Fulton Bank logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Fulton Bank</div></div>
+      <div class="client-logo-tile"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://logo.clearbit.com/bell-labs.com" alt="Bell Labs Paris logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Bell Labs, Paris</div></div>
     </div>
   </section>
 
@@ -1749,7 +1779,7 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const selector = '.hero > div, .client-impact-card, section[id], .trust-strip, .card, .insight-item, .offerings-scroll';
+    const selector = '.hero > div, .client-impact-card, section[id], .trust-strip, .client-logo-wall, .card, .insight-item, .offerings-scroll';
     const markAllVisible = () => {
       document.querySelectorAll(selector).forEach((el) => el.classList.add('is-visible'));
     };
@@ -1976,6 +2006,25 @@
       if (event.key === 'Escape') {
         closers.forEach((close) => close());
       }
+    });
+  })();
+
+  (function(){
+    const logoImages = document.querySelectorAll('.client-logo-img');
+    if (!logoImages.length) return;
+
+    logoImages.forEach((img) => {
+      const tile = img.closest('.client-logo-tile');
+      if (!tile) return;
+
+      const markFallback = () => tile.classList.add('no-image');
+
+      img.addEventListener('error', markFallback, { once: true });
+      img.addEventListener('load', () => {
+        if (img.naturalWidth < 16 || img.naturalHeight < 16) {
+          markFallback();
+        }
+      }, { once: true });
     });
   })();
 
