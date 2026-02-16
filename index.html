@@ -810,7 +810,13 @@
         mix-blend-mode: normal;
         filter: none;
         isolation: isolate;
+        background-clip: padding-box;
+        transition: none;
         z-index: 200;
+      }
+      .insight-item,
+      .insight-hover-target {
+        overflow: visible;
       }
       .service-hover-note,
       .insight-hover-target {
