@@ -704,19 +704,19 @@
     }
     .client-logo-wall {
       margin-top: calc(2.2rem + 1.25in);
-      width: 70%;
+      width: min(45.2rem, calc(100% - 1rem));
       margin-left: auto;
       margin-right: auto;
       border: 1px solid var(--surface-border);
       background: var(--surface-glass);
       border-radius: 1.1rem;
-      padding: 0.8rem 0.8rem 0.75rem;
+      padding: 0.46rem 0.46rem 0.42rem;
       backdrop-filter: blur(1.5px);
       box-shadow: 0 8px 20px rgba(15,23,42,0.08);
     }
     .client-logo-title {
-      margin: 0 0 0.2rem;
-      font-size: 0.76rem;
+      margin: 0 0 0.12rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #475569;
@@ -730,8 +730,8 @@
     }
     .client-logo-viewport {
       overflow: hidden;
-      mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
     }
     .client-logo-track {
       display: flex;
@@ -1216,7 +1216,7 @@
         min-width: 11.8rem;
       }
       .client-logo-wall {
-        width: 70%;
+        width: min(45.2rem, calc(100% - 1rem));
       }
       .client-logo-track .client-logo-tile {
         width: 9.6rem !important;
