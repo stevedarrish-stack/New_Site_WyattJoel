@@ -2059,13 +2059,16 @@
       if (!tile) return;
 
       const markFallback = () => tile.classList.add('no-image');
-
-      img.addEventListener('error', markFallback, { once: true });
-      img.addEventListener('load', () => {
-        if (img.naturalWidth < 16 || img.naturalHeight < 16) {
+      const validateLoadedImage = () => {
+        if (!img.complete) return;
+        if (!img.naturalWidth || !img.naturalHeight || img.naturalWidth < 16 || img.naturalHeight < 16) {
           markFallback();
         }
-      }, { once: true });
+      };
+
+      img.addEventListener('error', markFallback, { once: true });
+      img.addEventListener('load', validateLoadedImage, { once: true });
+      validateLoadedImage();
     });
   })();
 
