@@ -2241,10 +2241,21 @@
 
     const logoImages = document.querySelectorAll('.client-logo-img');
     if (!logoImages.length) return;
+    const logoNoCacheToken = Date.now().toString();
 
     logoImages.forEach((img) => {
       const tile = img.closest('.client-logo-tile');
       if (!tile) return;
+
+      if (img.src) {
+        try {
+          const logoUrl = new URL(img.src, window.location.origin);
+          logoUrl.searchParams.set('logo_v', logoNoCacheToken);
+          img.src = logoUrl.toString();
+        } catch (err) {
+          // Keep original src if URL parsing fails.
+        }
+      }
 
       const markFallback = () => tile.classList.add('no-image');
       const validateLoadedImage = () => {
