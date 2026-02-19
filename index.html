@@ -703,7 +703,10 @@
       to { transform: translateX(-50%); }
     }
     .client-logo-wall {
-      margin-top: 2.2rem;
+      margin-top: calc(2.2rem + 1.25in);
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
       border: 1px solid var(--surface-border);
       background: var(--surface-glass);
       border-radius: 1.1rem;
@@ -852,6 +855,26 @@
     }
     .client-logo-tile.client-logo-tile-maritz .client-logo-img {
       max-height: 1.92rem;
+    }
+    /* Keep crawl tiles visually consistent across the strip. */
+    .client-logo-track .client-logo-tile {
+      width: 10.8rem !important;
+      min-width: 10.8rem !important;
+      min-height: 2.6rem;
+      padding: 0.34rem 0.5rem !important;
+    }
+    .client-logo-track .client-logo-tile .client-logo-img-wrap {
+      height: 1.48rem !important;
+    }
+    .client-logo-track .client-logo-tile .client-logo-img {
+      max-height: 1.4rem !important;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-penn .client-logo-img-wrap {
+      height: 0.74rem !important;
+    }
+    .client-logo-track .client-logo-tile.client-logo-tile-penn .client-logo-img {
+      max-height: 0.7rem !important;
+      filter: grayscale(1) sepia(1) saturate(6500%) hue-rotate(186deg) brightness(0.95) contrast(1.05);
     }
     .client-logo-wall:hover .client-logo-track,
     .client-logo-wall:focus-within .client-logo-track {
@@ -1144,6 +1167,13 @@
       .client-logo-tile.client-logo-tile-maritz {
         min-width: 11.8rem;
       }
+      .client-logo-wall {
+        width: 70%;
+      }
+      .client-logo-track .client-logo-tile {
+        width: 9.6rem !important;
+        min-width: 9.6rem !important;
+      }
     }
     @media (max-width: 800px) {
       html,
@@ -1347,6 +1377,14 @@
       }
       .client-logo-tile.client-logo-tile-maritz {
         min-width: 10.4rem;
+      }
+      .client-logo-wall {
+        width: 100%;
+        margin-top: 2.2rem;
+      }
+      .client-logo-track .client-logo-tile {
+        width: 8.6rem !important;
+        min-width: 8.6rem !important;
       }
       .trust-strip {
         max-width: calc(100vw - 2rem);
@@ -1935,7 +1973,7 @@
       <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-penn"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Penn_State_wordmark.svg" alt="Penn State University logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Penn State University</div></div>
       <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/WITF_2022.svg" alt="WITF Broadcasting logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">WITF Broadcasting</div></div>
       <div class="client-logo-tile client-logo-tile-fallback client-logo-tile-maritz"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://www.smartsheet.com/sites/default/files/styles/900px/public/2024-02/maritz_logo_1.png?itok=3bbBoEXx" alt="Maritz St. Louis logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Maritz, based in St. Louis</div></div>
-      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://www.stlouisfed.org/-/media/project/frbstl/stlouisfed/images/logos/stlouisfed-2025-1200x800-web.jpg?sc_lang=en" alt="Federal Reserve Bank of St. Louis logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Federal Reserve Bank of St. Louis</div></div>
+      <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="federal-reserve-stl-logo.png" alt="Federal Reserve Bank of St. Louis logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Federal Reserve Bank of St. Louis</div></div>
       <div class="client-logo-tile client-logo-tile-fallback"><div class="client-logo-img-wrap"><img class="client-logo-img" src="https://upload.wikimedia.org/wikipedia/en/4/45/Walter_Energy_Logo.png" alt="Jim Walter Resources logo" loading="lazy" referrerpolicy="no-referrer" /></div><div class="client-logo-label">Jim Walter Resources</div></div>
     </div>
     </div>
