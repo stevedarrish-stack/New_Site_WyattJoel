@@ -864,6 +864,10 @@
       box-sizing: border-box;
       min-height: 2rem;
       padding: 0.18rem 0.24rem !important;
+      visibility: hidden;
+    }
+    .client-logo-track .client-logo-tile.is-loaded {
+      visibility: visible;
     }
     .client-logo-track .client-logo-tile .client-logo-img-wrap {
       height: 1.28rem !important;
@@ -2250,6 +2254,7 @@
     const logoImages = logoTrack.querySelectorAll('.client-logo-img');
     logoTrack.querySelectorAll('.client-logo-tile').forEach((tile) => {
       tile.classList.remove('no-image');
+      tile.classList.remove('is-loaded');
       const label = tile.querySelector('.client-logo-label');
       if (label) label.style.setProperty('display', 'none', 'important');
       const wrap = tile.querySelector('.client-logo-img-wrap');
@@ -2278,8 +2283,14 @@
       img.decoding = 'async';
       if (originalSrc) preloadSrcs.add(originalSrc);
 
-      const markFallback = () => tile.classList.add('no-image');
-      const clearFallback = () => tile.classList.remove('no-image');
+      const markFallback = () => {
+        tile.classList.remove('is-loaded');
+        tile.classList.add('no-image');
+      };
+      const clearFallback = () => {
+        tile.classList.remove('no-image');
+        tile.classList.add('is-loaded');
+      };
       const handleImageError = () => {
         if (!retriedOriginal && originalSrc) {
           retriedOriginal = true;
@@ -2292,6 +2303,10 @@
       const validateLoadedImage = () => {
         if (!img.complete) return;
         if (!img.naturalWidth || !img.naturalHeight) {
+          handleImageError();
+          return;
+        }
+        if (img.naturalWidth <= 16 && img.naturalHeight <= 16) {
           handleImageError();
           return;
         }
