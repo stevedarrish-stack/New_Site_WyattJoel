@@ -1409,10 +1409,21 @@
         font-size: 0.86rem;
       }
       .sector-pills {
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 0.2rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.42rem;
+        justify-content: stretch;
+        overflow-x: visible;
+        padding-bottom: 0;
+      }
+      .sector-pill {
+        width: 100%;
+        min-width: 0;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.2;
+        padding: 0.38rem 0.42rem;
+        font-size: 0.72rem;
       }
       .insights-list-col {
         padding-top: 0;
