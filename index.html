@@ -132,7 +132,27 @@
       background:
         radial-gradient(circle at 50% 48%, rgba(37,99,235,0.32) 0%, rgba(37,99,235,0.06) 42%, transparent 66%),
         linear-gradient(140deg, #001637 0%, #00275c 52%, #00366f 100%);
-      animation: curtainFade 2.1s ease forwards;
+      animation: curtainFade 4.8s steps(18, end) forwards;
+    }
+    .opening-curtain::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(148,197,255,0.18) 0 32px,
+          rgba(8,18,45,0.42) 32px 64px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(99,160,244,0.12) 0 32px,
+          rgba(4,13,36,0.38) 32px 64px
+        );
+      mix-blend-mode: screen;
+      opacity: 0.78;
+      animation: curtainPixelDissolve 4.8s steps(12, end) forwards;
     }
     .opening-panel {
       display: none;
@@ -151,7 +171,7 @@
         opacity: 1;
         filter: saturate(1.08) brightness(0.9);
       }
-      72% {
+      68% {
         opacity: 0.94;
         filter: saturate(1.03) brightness(0.96);
       }
@@ -159,6 +179,20 @@
         opacity: 0;
         filter: saturate(1) brightness(1);
         visibility: hidden;
+      }
+    }
+    @keyframes curtainPixelDissolve {
+      0% {
+        opacity: 0.82;
+      }
+      55% {
+        opacity: 0.6;
+      }
+      82% {
+        opacity: 0.28;
+      }
+      100% {
+        opacity: 0;
       }
     }
     header {
@@ -2075,7 +2109,7 @@
     curtain.addEventListener('animationend', (event) => {
       if (event.animationName === 'curtainFade') cleanup();
     });
-    window.setTimeout(cleanup, 2400);
+    window.setTimeout(cleanup, 5600);
   })();
 
   (function(){
