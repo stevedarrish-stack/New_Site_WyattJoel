@@ -1232,6 +1232,10 @@
         grid-template-columns: minmax(0, 1fr);
         justify-items: center;
       }
+      .hero-right-stack {
+        width: 100%;
+        max-width: calc(100vw - 2rem);
+      }
       .shell {
         padding-left: 1.25rem;
         padding-right: 1.25rem;
@@ -1301,28 +1305,34 @@
         right: auto;
       }
       .client-impact-card {
-        width: 100%;
+        box-sizing: border-box;
+        width: calc(100vw - 2rem);
         max-width: calc(100vw - 2rem);
-        margin: 1.2rem auto;
-        padding: 1rem 0.9rem;
+        margin: 1rem auto;
+        padding: 0.9rem 0.72rem;
+        overflow: hidden;
       }
       .impact-stats {
-        flex-wrap: wrap;
-        gap: 0.7rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.45rem;
+        margin-bottom: 0.9rem;
       }
       .impact-stats > div {
         min-width: 0;
       }
       .impact-number {
-        font-size: clamp(0.95rem, 4.8vw, 1.12rem);
+        font-size: clamp(0.8rem, 3.6vw, 0.96rem);
+        white-space: nowrap;
       }
       .impact-label {
-        font-size: 0.86rem;
+        font-size: 0.74rem;
+        line-height: 1.15;
       }
       .sector-pills {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.42rem;
+        gap: 0.36rem;
         justify-content: stretch;
         overflow-x: visible;
         padding-bottom: 0;
@@ -1334,7 +1344,7 @@
         text-align: center;
         line-height: 1.2;
         padding: 0.38rem 0.42rem;
-        font-size: 0.72rem;
+        font-size: 0.68rem;
       }
       .insights-list-col {
         padding-top: 0;
