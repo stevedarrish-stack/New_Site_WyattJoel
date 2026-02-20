@@ -733,7 +733,11 @@
       gap: 0.45rem;
       width: max-content;
       animation: clientLogoScroll 56s linear infinite;
+      animation-play-state: paused;
       will-change: transform;
+    }
+    .client-logo-track.is-ready {
+      animation-play-state: running;
     }
     .client-logo-tile {
       border: 1px solid rgba(148,163,184,0.45);
@@ -2241,14 +2245,26 @@
 
   (function(){
     const logoTrack = document.getElementById('client-logo-track');
-    if (logoTrack && logoTrack.dataset.loopReady !== '1') {
+    if (!logoTrack) return;
+
+    if (logoTrack.dataset.loopReady !== '1') {
       logoTrack.innerHTML += logoTrack.innerHTML;
       logoTrack.dataset.loopReady = '1';
     }
 
-    const logoImages = document.querySelectorAll('.client-logo-img');
-    if (!logoImages.length) return;
-    const logoNoCacheToken = Date.now().toString();
+    const logoImages = logoTrack.querySelectorAll('.client-logo-img');
+    if (!logoImages.length) {
+      logoTrack.classList.add('is-ready');
+      return;
+    }
+    const preloadSrcs = new Set();
+    let started = false;
+
+    const startAnimation = () => {
+      if (started) return;
+      started = true;
+      logoTrack.classList.add('is-ready');
+    };
 
     logoImages.forEach((img) => {
       const tile = img.closest('.client-logo-tile');
@@ -2256,15 +2272,9 @@
       const originalSrc = img.getAttribute('src') || '';
       let retriedOriginal = false;
 
-      if (originalSrc) {
-        try {
-          const logoUrl = new URL(originalSrc, window.location.origin);
-          logoUrl.searchParams.set('logo_v', logoNoCacheToken);
-          img.src = logoUrl.toString();
-        } catch (err) {
-          // Keep original src if URL parsing fails.
-        }
-      }
+      img.loading = 'eager';
+      img.decoding = 'async';
+      if (originalSrc) preloadSrcs.add(originalSrc);
 
       const markFallback = () => tile.classList.add('no-image');
       const clearFallback = () => tile.classList.remove('no-image');
@@ -2289,6 +2299,20 @@
       img.addEventListener('load', validateLoadedImage);
       validateLoadedImage();
     });
+
+    const preloadTasks = Array.from(preloadSrcs).map(
+      (src) =>
+        new Promise((resolve) => {
+          const probe = new Image();
+          probe.referrerPolicy = 'no-referrer';
+          probe.onload = resolve;
+          probe.onerror = resolve;
+          probe.src = src;
+        })
+    );
+
+    Promise.all(preloadTasks).then(startAnimation);
+    window.setTimeout(startAnimation, 2500);
   })();
 
   (function(){
